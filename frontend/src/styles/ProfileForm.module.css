@@ -1,0 +1,48 @@
+.formContainer {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .progress {
+    margin-bottom: 2rem;
+  }
+  
+  .progress span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: var(--gray-100);
+    margin: 0 1rem;
+  }
+  
+  .progress .active {
+    background: var(--primary);
+    color: white;
+  }
+  
+  .step select,
+  .step input,
+  .step textarea {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem auto;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-900);
+    border-radius: 4px;
+  }
+  
+  .step label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  
+  .navigation {
+    margin-top: 1rem;
+  }
+  
+  .navigation button {
+    margin: 0 0.5rem;
+  }

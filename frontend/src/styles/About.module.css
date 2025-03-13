@@ -1,0 +1,183 @@
+.main {
+    padding-top: 80px;
+  }
+  
+  .hero {
+    background: var(--primary);
+    padding: 6rem 2rem;
+    text-align: center;
+    color: white;
+  }
+  
+  .heroContent h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .heroContent p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .mission {
+    padding: 6rem 0;
+    background: white;
+  }
+  
+  .missionContent {
+    padding-right: 2rem;
+  }
+  
+  .missionContent h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .missionContent p {
+    margin-bottom: 2rem;
+    color: var(--gray-900);
+  }
+  
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stats h3 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stats p {
+    color: #666;
+  }
+  
+  .missionImage {
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  .coreValues {
+    padding: 6rem 0;
+    background: var(--gray-100);
+  }
+  
+  .coreValuesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .coreValueCard {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .coreValueCard h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .coreValueCard p {
+    color: #666;
+  }
+  
+  .approach {
+    padding: 6rem 0;
+    background: white;
+  }
+  
+  .approachGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .approachStep {
+    text-align: center;
+  }
+  
+  .approachStep h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .approachStep p {
+    color: #666;
+  }
+  
+  .leadership {
+    padding: 6rem 0;
+    background: var(--gray-100);
+  }
+  
+  .leadershipGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .leadershipCard {
+    text-align: center;
+  }
+  
+  .leadershipImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .leadershipCard h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .leadershipCard p:nth-child(2) {
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (max-width: 992px) {
+    .mission {
+      flex-direction: column;
+    }
+    .missionContent,
+    .missionImage {
+      width: 100%;
+    }
+    .approachGrid {
+      grid-template-columns: 1fr;
+    }
+    .stats {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 1rem;
+    }
+    .mission,
+    .coreValues,
+    .approach,
+    .leadership {
+      padding: 4rem 0;
+    }
+    .heroContent h1 {
+      font-size: 2rem;
+    }
+    .heroContent p {
+      font-size: 1rem;
+    }
+  }

@@ -1,0 +1,17 @@
+.dashboard {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .stats {
+      grid-template-columns: 1fr;
+    }
+  }

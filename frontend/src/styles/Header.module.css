@@ -1,0 +1,76 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--gray-900);
+  transition: color 0.3s;
+}
+.logo:hover {
+  color: #1e40af; /* Darker blue for hover effect */
+}
+.logo span {
+  color: var(--primary); /* #4361ee */
+}
+
+.navAuth {
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--gray-900);
+  transition: color 0.3s;
+}
+.navLink:hover {
+  color: var(--primary);
+}
+
+.signIn {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--primary);
+}
+.signUp {
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.signUp:hover {
+  background: #3550cc; /* Slightly darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .navAuth {
+    margin-top: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .navLink, .signIn {
+    margin: 0.5rem;
+  }
+}

@@ -8,7 +8,7 @@ auth_bp = Blueprint('auth_bp', __name__)
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
-    create_user(mongo, data['email'], data['password'])
+    create_user(mongo, data['email'], data['password'], data['fullName'])
     return jsonify({"message": "User registered"}), 201
 
 @auth_bp.route('/login', methods=['POST'])

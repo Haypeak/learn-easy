@@ -1,0 +1,118 @@
+.authContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height without footer */
+  background: var(--gray-100); /* Light gray background */
+  padding: 1rem;
+}
+
+.authCard {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.authCard h2 {
+  font-size: 2rem;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #666; /* Subtle gray for subtitle */
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #f9f9f9; /* Light background for inputs */
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  border-color: var(--primary); /* Blue border on focus */
+  outline: none;
+}
+
+.error {
+  color: #dc3545; /* Red for errors */
+  font-size: 0.8rem;
+  text-align: left;
+  margin-top: 0.25rem;
+}
+
+.forgotLink {
+  display: block;
+  text-align: right;
+  color: var(--primary); /* Blue for link */
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+
+.forgotLink:hover {
+  text-decoration: underline;
+}
+
+.signInButton {
+  background: var(--primary); /* Blue button */
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.signInButton:hover:not(:disabled) {
+  background: #3550cc; /* Darker blue on hover */
+}
+
+.signInButton:disabled {
+  background: #a3bffa; /* Disabled state */
+  cursor: not-allowed;
+}
+
+.signupLink {
+  margin-top: 1.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.signupLink a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.signupLink a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .authCard {
+    margin: 1rem;
+    padding: 2rem;
+  }
+  .authCard h2 {
+    font-size: 1.5rem;
+  }
+}
