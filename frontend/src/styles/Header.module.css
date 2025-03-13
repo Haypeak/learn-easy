@@ -74,3 +74,17 @@
     margin: 0.5rem;
   }
 }
+
+.signOut {
+  padding: 0.5rem 1rem;
+  background: none;
+  color: var(--primary);
+  text-decoration: none;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+.signOut:hover {
+  background: var(--primary);
+  color: white;
+}
