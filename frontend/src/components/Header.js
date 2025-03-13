@@ -12,8 +12,14 @@ function Header() {
         LearnSphere<span>.io</span>
       </Link>
       <div className={styles.navAuth}>
+
         {user ? (
+          <>
+          <Link to="/dashboard" className={styles.navLink}>Dashboard</Link>
+          <Link to="/features" className={styles.navLink}>Features</Link>
+          <Link to="/about" className={styles.navLink}>About</Link>
           <button onClick={logout} className={styles.signOut}>Sign Out</button>
+          </>
         ) : (
           <>
             <Link to="/features" className={styles.navLink}>Features</Link>

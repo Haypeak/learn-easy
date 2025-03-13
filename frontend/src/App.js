@@ -8,8 +8,17 @@ import ProfileForm from './pages/ProfileForm';
 import Dashboard from './pages/Dashboard';
 import Features from './pages/Features';
 import About from './pages/About';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
+
+
 
 function App() {
+  function PrivateRoute({ children }) {
+    const { user } = useAuth();
+    return user ? children : <Navigate to="/" />;
+  }
+
   return (
     <AuthProvider>
       <Router>
@@ -18,7 +27,14 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile-setup" element={<ProfileForm />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
           <Route path="/features" element={<Features />} />
           <Route path="/about" element={<About />} />
         </Routes>
