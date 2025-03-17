@@ -6,12 +6,19 @@ import { BarChart, BookOpen, Target, Trophy } from 'lucide-react';
 import styles from '../styles/Dashboard.module.css';
 
 function Dashboard() {
+  const profileData = JSON.parse(localStorage.getItem('profile')) || {};
+
   return (
     <div>
       <Header />
       <main className={styles.dashboard}>
-        <h1>Welcome, User!</h1>
+      <h1>Welcome, {profileData.educationLevel || 'User'}!</h1>
+
         <div className={styles.stats}>
+          <p>School: {profileData.schoolName}</p>
+          <p>Grade/Year: {profileData.gradeYear}</p>
+          <p>Learning Goals: {profileData.goals}</p>
+
           <Card icon={<BarChart />} title="Progress" description="75% Complete" />
           <Card icon={<BookOpen />} title="Active Courses" description="4" />
           <Card icon={<Target />} title="Goals Achieved" description="2" />

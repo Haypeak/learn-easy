@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* Full viewport height without footer */
-  background: var(--gray-100); /* Light gray background */
+  background: #f5f5f5; /* Light gray background */
   padding: 1rem;
 }
 
@@ -13,7 +13,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   width: 100%;
-  max-width: 400px;
+  max-width: 500px; /* Slightly wider to accommodate checkboxes */
   text-align: center;
   position: relative;
 }
@@ -30,25 +30,127 @@
   margin-bottom: 1.5rem;
 }
 
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.progressStep {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.progressStep.active {
+  background: var(--primary);
+  color: white;
+}
+
+.formSectionTitle {
+  font-size: 1.25rem;
+  color: var(--gray-900);
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
 .inputGroup {
   margin-bottom: 1rem;
   text-align: left;
 }
 
-.input {
+.inputLabel {
+  display: block;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.input, .textarea, select.input {
   display: block;
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
-  background: #f9f9f9; /* Light background for inputs */
+  background: white;
   transition: border-color 0.3s;
+  color: #333;
 }
 
-.input:focus {
+.input:focus, .textarea:focus, select.input:focus {
   border-color: var(--primary); /* Blue border on focus */
   outline: none;
+}
+
+.input::placeholder, .textarea::placeholder, select.input::placeholder {
+  color: #999; /* Placeholder color to match images */
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.checkboxGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: left;
+}
+
+.checkboxInput {
+  appearance: none; /* Remove default checkbox styling */
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.checkboxInput:checked {
+  background: var(--primary); /* Blue background when checked */
+  border-color: var(--primary);
+  position: relative;
+}
+
+.checkboxInput:checked::after {
+  content: '✔';
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkboxInput:focus {
+  border-color: var(--primary); /* Blue border on focus */
+  outline: none;
+}
+
+.checkboxInput:hover:not(:disabled) {
+  border-color: var(--primary); /* Blue border on hover */
 }
 
 .error {
@@ -69,6 +171,49 @@
 
 .forgotLink:hover {
   text-decoration: underline;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.previousButton {
+  background: transparent;
+  color: #666;
+  border: 1px solid #ccc;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.previousButton:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.nextButton {
+  background: var(--primary); /* Blue button */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nextButton:hover:not(:disabled) {
+  background: #3550cc; /* Darker blue on hover */
+}
+
+.nextButton:disabled {
+  background: #a3bffa; /* Disabled state */
+  cursor: not-allowed;
 }
 
 .signInButton {
@@ -114,5 +259,8 @@
   }
   .authCard h2 {
     font-size: 1.5rem;
+  }
+  .checkboxGroup {
+    grid-template-columns: 1fr;
   }
 }
