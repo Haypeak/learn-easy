@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext'; // Import AuthContext
 import Sidebar from '../components/Sidebar';
@@ -11,17 +11,17 @@ function Dashboard() {
   const { user, logout } = useAuth(); // Access user and logout from AuthContext
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-  // // Retrieve profile data from localStorage (optional, if still needed)
+  // Retrieve profile data from localStorage (optional, if still needed)
   const profile = JSON.parse(localStorage.getItem('profile') || '{}');
   const userName = profile.schoolName ? profile.schoolName.split(' ')[0] : 'John Doe'; // Fallback name
-  console.log(user.token); // Ensure this logs the correct token
-  // // Mock data for previous dashboard
-  // const metrics = [
-  //   { title: 'Progress', value: '75% Complete', icon: <BookOpen /> },
-  //   { title: 'Courses', value: '4 Active', icon: <BookOpen /> },
-  //   { title: 'Goals', value: '2 Achieved', icon: <Target /> },
-  //   { title: 'Awards', value: '3 Earned', icon: <Award /> },
-  // ];
+
+  // Mock data for previous dashboard
+  const metrics = [
+    { title: 'Progress', value: '75% Complete', icon: <BookOpen /> },
+    { title: 'Courses', value: '4 Active', icon: <BookOpen /> },
+    { title: 'Goals', value: '2 Achieved', icon: <Target /> },
+    { title: 'Awards', value: '3 Earned', icon: <Award /> },
+  ];
 
   const recentActivity = [
     { title: 'Completed Math Assessment', detail: 'Score: 85%', time: '2 hours ago', icon: <BookOpen /> },
@@ -47,94 +47,10 @@ function Dashboard() {
     modulesCompleted: '7 of 10 modules completed',
   };
 
-  // const handleLogout = () => {
-  //   logout(); // Call AuthContext logout function to update state
-  //   navigate('/'); // Redirect to the original landing page
-  // };
-
-    // State for fetched data
-    const [metrics, setMetrics] = useState([]);
-    const [tasks, setTasks] = useState([]);
-    const [progress, setProgress] = useState([]);
-
-    // Fetch data from the API
-    useEffect(() => {
-      const fetchDashboardData = async () => {
-        try {
-          // Replace with your API endpoint
-          const response = await axios.get('http://localhost:5000/user/dashboard', {
-            headers: {
-              Authorization: `Bearer ${user.token}`, // Pass the user's token for authentication
-            },
-          });
-
-          // Update state with fetched data
-          setMetrics(response.data.metrics);
-          setTasks(response.data.tasks);
-          setProgress(response.data.progress);
-        } catch (error) {
-          console.error('Error fetching dashboard data:', error);
-          if (error.response && error.response.status === 401) {
-            logout(); // Log the user out if the token is invalid
-            navigate('/login');
-          }
-        }
-      };
-
-      fetchDashboardData();
-    }, [user, logout, navigate]);
-  //   return (
-  //     <div className={styles.dashboard}>
-  //       <Sidebar isOpen={isSidebarOpen} toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
-  //       <div className={styles.content}>
-  //         <h1>Welcome, {user.full_name || 'User'}!</h1>
-  
-  //         {/* Metrics Section */}
-  //         <div className={styles.metrics}>
-  //           {metrics.map((metric, index) => (
-  //             <div key={index} className={styles.metricCard}>
-  //               <div className={styles.metricIcon}>{metric.icon}</div>
-  //               <div className={styles.metricInfo}>
-  //                 <h3>{metric.title}</h3>
-  //                 <p>{metric.value}</p>
-  //               </div>
-  //             </div>
-  //           ))}
-  //         </div>
-  
-  //         {/* Tasks Section */}
-  //         <div className={styles.card}>
-  //           <h3>Upcoming Tasks</h3>
-  //           <ul className={styles.taskList}>
-  //             {tasks.map((task, index) => (
-  //               <li key={index} className={styles.taskItem}>
-  //                 <span className={styles.taskIcon}>📅</span> {task.title} <span>{task.date}</span>
-  //               </li>
-  //             ))}
-  //           </ul>
-  //         </div>
-  
-  //         {/* Progress Section */}
-  //         <div className={styles.card}>
-  //           <h3>Learning Progress</h3>
-  //           {progress.map((item, index) => (
-  //             <div key={index} className={styles.progressItem}>
-  //               <p>{item.title}</p>
-  //               <div className={styles.progressBar}>
-  //                 <div
-  //                   className={styles.progressFill}
-  //                   style={{ width: `${item.progress}%` }}
-  //                 ></div>
-  //               </div>
-  //             </div>
-  //           ))}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-  
-  // export default Dashboard;
+  const handleLogout = () => {
+    logout(); // Call AuthContext logout function to update state
+    navigate('/'); // Redirect to the original landing page
+  };
 
   return (
     <div className={styles.dashboard}>
@@ -142,7 +58,7 @@ function Dashboard() {
         userName={userName}
         isOpen={isSidebarOpen}
         toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
-        onLogout={logout}
+        onLogout={handleLogout}
         activeLink="dashboard"
       />
       <main className={styles.mainContent}>
