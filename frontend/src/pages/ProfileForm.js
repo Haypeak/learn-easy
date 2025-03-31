@@ -30,7 +30,7 @@ function ProfileForm() {
       setFormData((prev) => ({
         ...prev,
         [name]: value,
-        ...(name === 'educationLevel' && { formYear: '' }), // Reset formYear when educationLevel changes
+        ...(name === 'educationLevel' && { formYear: formData.formYear }), // Reset formYear when educationLevel changes
       }));
     }
   };
@@ -56,6 +56,32 @@ function ProfileForm() {
     if (formData.educationLevel && formData.schoolName && formData.formYear && formData.goals) {
       try {
         localStorage.setItem('profile', JSON.stringify(formData));
+        // fetch(`http://127.0.01:5000/auth/update/${localStorage.getItem('userId')}`, {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        //   },
+        //   body: JSON.stringify({
+        //     formYear: formData.formYear,
+        //     subjects: formData.subjects,
+        //     schoolName: formData.schoolName,
+        //     learning_goals: formData.goals,
+        //   }),
+        // })
+        //   .then((response) => {
+        //     if (!response.ok) {
+        //       throw new Error('Failed to update profile');
+        //     }
+        //     return response.json();
+        //   })
+        //   .then((data) => {
+        //     console.log('Profile updated successfully:', data);
+        //   })
+        //   .catch((error) => {
+        //     console.error('Error updating profile:', error);
+        //     toast.error('Failed to update profile. Please try again.');
+        //   });
         toast.success('Profile saved successfully!');
         navigate('/dashboard');
       } catch (error) {

@@ -1,0 +1,177 @@
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.timer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.progress {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--gray-600);
+}
+
+.question {
+  margin-bottom: 2rem;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.option:hover {
+  background-color: #f5f5f5;
+}
+
+.option.selected {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+}
+
+.optionText {
+  margin-left: 1rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.navButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.navButton:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.submit {
+  background-color: #4CAF50;
+}
+
+.submit:hover {
+  background-color: #45a049;
+}
+
+.result {
+  text-align: center;
+}
+
+.score {
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.feedback {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.feedbackItem {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.feedbackItem.correct {
+  background-color: #e8f5e9;
+  border: 1px solid #4caf50;
+}
+
+.feedbackItem.incorrect {
+  background-color: #ffebee;
+  border: 1px solid #f44336;
+}
+
+.explanation {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: var(--gray-700);
+}
+
+.returnButton {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.returnButton:hover {
+  background-color: var(--primary-dark);
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .option {
+    padding: 0.75rem;
+  }
+}
+

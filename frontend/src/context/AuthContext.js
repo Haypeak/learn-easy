@@ -1,70 +1,76 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import api from '../utils/api';
 
-// Create a context
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
-// Create a provider component
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // Default user state
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const login = (userData) => {
-    setUser(userData); // Set user data on login
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      fetchUserProfile();
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  const fetchUserProfile = async () => {
+    try {
+      const response = await api.get('/user/profile');
+      setUser(response.data);
+    } catch (error) {
+      console.error('Failed to fetch user profile:', error);
+      localStorage.removeItem('token');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const signIn = async (email, password) => {
-    try {
-      const response = await fetch('http://127.0.0.1:5000/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to sign in');
-      }
-
-      const userData = await response.json();
-      login(userData); // Call login to set user data
-    } catch (error) {
-      console.error('Error signing in:', error);
-    }
+    const response = await api.post('/auth/login', {
+      email, 
+      password,
+    });
+    const { token, user: userData } = response.data;
+    localStorage.setItem('token', token);
+    setUser(userData);
+    return response.data;
   };
 
-  const signUp = async (email, password, fullName) => {
-    try {
-      const response = await fetch('http://127.0.0.1:5000/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password, fullName }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to sign up');
-      }
-
-      const userData = await response.json();
-      login(userData); // Call login to set user data
-    } catch (error) {
-      console.error('Error signing up:', error);
-    }
+  const signUp = async (userData) => {
+    const response = await api.post('/auth/register', userData);
+    const { token, user: newUser } = response.data;
+    localStorage.setItem('token', token);
+    setUser(newUser);
+    return response.data;
   };
 
   const logout = () => {
-    setUser(null); // Clear user data on logout
+    localStorage.removeItem('token');
+    setUser(null);
+  };
+
+  const value = {
+    user,
+    loading,
+    signIn,
+    signUp,
+    logout,
   };
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signUp, logout }}>
-      {children}
+    <AuthContext.Provider value={value}>
+      {!loading && children}
     </AuthContext.Provider>
   );
 };
 
-// Custom hook to use the AuthContext
 export const useAuth = () => {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
 };

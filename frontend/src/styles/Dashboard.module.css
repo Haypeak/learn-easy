@@ -1,17 +1,191 @@
 .dashboard {
-    padding: 4rem 2rem;
-    text-align: center;
+  display: flex;
+  min-height: 100vh;
+  background: #f5f5f5; /* Light gray background, matches auth pages */
+}
+
+.mainContent {
+  margin-left: 250px;
+  padding: 2rem;
+  flex-grow: 1;
+  transition: margin-left 0.3s;
+}
+
+.mainContent.sidebar-closed {
+  margin-left: 60px;
+}
+
+.welcome {
+  margin-bottom: 2rem;
+}
+
+.welcome h2 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff; /* White background, matches auth and profile cards */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.resumeButton {
+  background: #4A90E2; /* Blue primary color, matches auth buttons */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.resumeButton:hover {
+  background: #357ABD; /* Darker blue on hover */
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: #4A90E2; /* Blue progress bar */
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.taskList {
+  list-style: none;
+  padding: 0;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.taskIcon {
+  color: #28a745; /* Green for tasks, consistent with image */
+}
+
+.progressCircle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 1rem auto;
+}
+
+.circleSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circleBackground {
+  fill: none;
+  stroke: #e0e0e0;
+  stroke-width: 8;
+}
+
+.circleProgress {
+  fill: none;
+  stroke: #4A90E2; /* Blue progress circle */
+  stroke-width: 8;
+  stroke-linecap: round;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: stroke-dashoffset 0.3s;
+}
+
+.progressText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.metricContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.metricContent svg {
+  color: #4A90E2;
+  width: 24px;
+  height: 24px;
+}
+
+.activityList {
+  list-style: none;
+  padding: 0;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.activityItem svg {
+  color: #4A90E2;
+  width: 20px;
+  height: 20px;
+}
+
+.activityTitle {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+  font-weight: bold;
+}
+
+.activityDetail {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.25rem 0;
+}
+
+.activityTime {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 60px;
   }
-  
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
+  .mainContent.sidebar-open {
+    margin-left: 250px;
   }
-  
-  @media (max-width: 768px) {
-    .stats {
-      grid-template-columns: 1fr;
-    }
+  .cards {
+    grid-template-columns: 1fr;
   }
+}
