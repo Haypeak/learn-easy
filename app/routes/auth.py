@@ -4,6 +4,7 @@ from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_requir
 from app import mongo
 from datetime import datetime
 from app.models.user import create_user, check_user, update_user
+from bson import ObjectId  # Add this import at the top of the file if not already present
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -66,7 +67,7 @@ def login():
 @jwt_required()
 def get_profile():
     current_user_id = get_jwt_identity()
-    user = mongo.db.users.find_one({'_id': current_user_id})
+    user = mongo.db.users.find_one({'_id': ObjectId(current_user_id)})
     
     if not user:
         return jsonify({'error': 'User not found'}), 404
@@ -74,9 +75,36 @@ def get_profile():
     return jsonify({
         'id': str(user['_id']),
         'email': user['email'],
-        'name': user['name'],
+        'name': user['full_name'],
         'role': user.get('role', 'student')
     }), 200
+
+@auth_bp.route('/enrolled-courses', methods=['GET'])
+@jwt_required()
+def get_enrolled_courses():
+    current_user_id = get_jwt_identity()
+    print(f"Current User ID: {current_user_id}")
+    user = mongo.db.users.find_one({'_id': ObjectId(current_user_id)})
+    print(user)
+    
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    
+    enrolled_courses = user.get('enrolled_courses', [])
+    return jsonify({'enrolled_courses': enrolled_courses}), 200
+
+
+@auth_bp.route('/achievements', methods=['GET'])
+@jwt_required()
+def get_achievements():
+    current_user_id = get_jwt_identity()
+    user = mongo.db.users.find_one({'_id': ObjectId(current_user_id)})
+    
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    
+    achievements = user.get('achievements', [])
+    return jsonify({'achievements': achievements}), 200
 
 # from flask import Blueprint, request, jsonify
 # from flask_jwt_extended import jwt_required
@@ -91,11 +119,11 @@ def get_profile():
 #     create_user(mongo, data['email'], data['password'], data['fullName'])
 #     return jsonify({"message": "User registered"}), 201
 
-# @auth_bp.route('/update/<user_id>')
-# def update_id(user_id):
-#     data = request.get_json()
-#     update_user(mongo, user_id, data['formYear'], data['subjects'], None, None, None, data['schoolName'], data['learning_goals'], data['educationLevel'])
-#     return jsonify({"message": "User data updated"}), 200
+@auth_bp.route('/update/<user_id>')
+def update_id(user_id):
+    data = request.get_json()
+    update_user(mongo, user_id, data['formYear'], data['subjects'], None, None, None, data['schoolName'], data['learning_goals'], data['educationLevel'])
+    return jsonify({"message": "User data updated"}), 200
 
 # @auth_bp.route('/login', methods=['POST'])
 # def login():

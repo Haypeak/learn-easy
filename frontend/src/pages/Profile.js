@@ -31,7 +31,12 @@ export default function Profile() {
 
   const fetchProfileData = async () => {
     try {
-      const response = await api.get('/user/profile');
+      const jwt = localStorage.getItem('jwt');
+      const response = await api.get('/auth/profile', {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
       setProfile(response.data);
       setEditForm(response.data);
     } catch (err) {
@@ -44,7 +49,7 @@ export default function Profile() {
 
   const fetchEnrolledCourses = async () => {
     try {
-      const response = await api.get('/user/enrolled-courses');
+      const response = await api.get('/auth/enrolled-courses');
       setEnrolledCourses(response.data);
     } catch (err) {
       console.error('Error fetching enrolled courses:', err);
@@ -53,7 +58,7 @@ export default function Profile() {
 
   const fetchAchievements = async () => {
     try {
-      const response = await api.get('/user/achievements');
+      const response = await api.get('/auth/achievements');
       setAchievements(response.data);
     } catch (err) {
       console.error('Error fetching achievements:', err);
@@ -71,7 +76,7 @@ export default function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.put('/user/profile', editForm);
+      await api.put('/auth/profile', editForm);
       setProfile(editForm);
       setIsEditing(false);
     } catch (err) {

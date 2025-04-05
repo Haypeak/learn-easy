@@ -18,7 +18,12 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUserProfile = async () => {
     try {
-      const response = await api.get('/user/profile');
+      const token = localStorage.getItem('token');
+      const response = await api.get('/auth/profile', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setUser(response.data);
     } catch (error) {
       console.error('Failed to fetch user profile:', error);
