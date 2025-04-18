@@ -102,13 +102,6 @@ def get_progress(course_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-from flask import Blueprint, request, jsonify
-from flask_jwt_extended import jwt_required, get_jwt_identity
-from app import mongo
-from bson.objectid import ObjectId
-
-learning_bp = Blueprint('learning_bp', __name__)
-
 @learning_bp.route('/progress', methods=['GET'])
 @jwt_required()
 def get_progress():
@@ -126,3 +119,22 @@ def update_progress():
         {"$push": {"progress": {"topic": data['topic'], "score": data['score']}}}
     )
     return jsonify({"message": "Progress updated"})
+
+@learning_bp.route('/course/<course_id>/enroll', methods=['POST'])
+@jwt_required()
+def enroll_in_course(course_id):
+    current_user_id = get_jwt_identity()
+    try:
+        # Check if the course exists
+        course = mongo.db.courses.find_one({'_id': ObjectId(course_id)})
+        if not course:
+            return jsonify({'error': 'Course not found'}), 404
+
+        # Add the course to the user's enrolled_courses
+        mongo.db.users.update_one(
+            {'_id': ObjectId(current_user_id)},
+            {'$addToSet': {'enrolled_courses': ObjectId(course_id)}}
+        )
+        return jsonify({'message': 'Enrolled in course successfully'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

@@ -89,9 +89,16 @@ def get_enrolled_courses():
     
     if not user:
         return jsonify({'error': 'User not found'}), 404
-    
+    if 'enrolled_courses' not in user:
+        return jsonify({'error': 'No enrolled courses found'}), 404
     enrolled_courses = user.get('enrolled_courses', [])
-    return jsonify({'enrolled_courses': enrolled_courses}), 200
+    courses = list(mongo.db.courses.find({'_id': {'$in': enrolled_courses}}))
+    return jsonify([{
+        'id': str(course['_id']),
+        'title': course['title'],
+        'description': course['description'],
+        'level': course.get('level', 'Beginner')
+    } for course in courses]), 200
 
 
 @auth_bp.route('/achievements', methods=['GET'])
