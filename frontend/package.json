@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.8.4",
     "formik": "^2.4.6",
     "lucide-react": "^0.477.0",
     "react": "^19.0.0",
