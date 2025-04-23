@@ -104,14 +104,14 @@ def get_progress(course_id):
 
 @learning_bp.route('/progress', methods=['GET'])
 @jwt_required()
-def get_progress():
+def get_user_progress():
     user_id = get_jwt_identity()
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     return jsonify({"progress": user.get("progress", [])})
 
 @learning_bp.route('/update-progress', methods=['POST'])
 @jwt_required()
-def update_progress():
+def update_user_progress():
     data = request.get_json()
     user_id = get_jwt_identity()
     mongo.db.users.update_one(
