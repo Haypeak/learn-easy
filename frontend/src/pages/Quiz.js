@@ -8,7 +8,7 @@ import styles from '../styles/Quiz.module.css';
 export default function Quiz() {
   const { quizId } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  // const { user } = useAuth();
 
   const [quiz, setQuiz] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
