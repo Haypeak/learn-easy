@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext'; // Import AuthContext
 import Sidebar from '../components/Sidebar';
 import { BookOpen, Target, Award } from 'lucide-react'; // For previous dashboard icons
 import styles from '../styles/Dashboard.module.css';
-import axios from 'axios';
+
 
 function Dashboard() {
   const navigate = useNavigate();
