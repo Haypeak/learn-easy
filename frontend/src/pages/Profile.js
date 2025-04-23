@@ -6,7 +6,7 @@ import api from '../utils/api';
 import styles from '../styles/Profile.module.css';
 
 export default function Profile() {
-  const { user } = useAuth();
+  // const { user } = useAuth(); // Removed as it is not used
   const navigate = useNavigate();
   
   const [profile, setProfile] = useState(null);

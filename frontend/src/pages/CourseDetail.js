@@ -8,7 +8,7 @@ import styles from '../styles/CourseDetail.module.css';
 export default function CourseDetail() {
   const { courseId } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  // const { user } = useAuth();
   
   const [course, setCourse] = useState(null);
   const [enrollmentStatus, setEnrollmentStatus] = useState(null);

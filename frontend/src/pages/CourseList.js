@@ -12,7 +12,7 @@ export default function CourseList() {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
-  const { user } = useAuth();
+  // const { user } = useAuth();
 
   useEffect(() => {
     fetchCourses();

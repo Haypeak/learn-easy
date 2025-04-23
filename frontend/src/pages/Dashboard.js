@@ -8,7 +8,7 @@ import styles from '../styles/Dashboard.module.css';
 
 function Dashboard() {
   const navigate = useNavigate();
-  const { user, logout } = useAuth(); // Access user and logout from AuthContext
+  const { logout } = useAuth(); // Access logout from AuthContext
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   // Retrieve profile data from localStorage (optional, if still needed)
