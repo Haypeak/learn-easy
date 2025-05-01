@@ -1,40 +1,40 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const api = axios.create({
-//   baseURL: process.env.REACT_APP_API_URL,
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-// });
-const api = {
+const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+// const api = {
+//   baseURL: process.env.REACT_APP_API_URL,
   
-  async request(endpoint, options = {}) {
-    const response = await fetch(`${this.baseURL}${endpoint}`, {
-      ...options,
-      headers: {
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
-    });
+//   async request(endpoint, options = {}) {
+//     const response = await fetch(`${this.baseURL}${endpoint}`, {
+//       ...options,
+//       headers: {
+//         'Content-Type': 'application/json',
+//         ...options.headers,
+//       },
+//     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
 
-    return response.json();
-  },
+//     return response.json();
+//   },
 
-  get(endpoint, options = {}) {
-    return this.request(endpoint, { method: 'GET', ...options });
-  },
+//   get(endpoint, options = {}) {
+//     return this.request(endpoint, { method: 'GET', ...options });
+//   },
 
-  post(endpoint, data, options = {}) {
-    return this.request(endpoint, { method: 'POST', body: JSON.stringify(data), ...options });
-  },
+//   post(endpoint, data, options = {}) {
+//     return this.request(endpoint, { method: 'POST', body: JSON.stringify(data), ...options });
+//   },
 
   // You can add more methods like put, delete, etc. as needed
-};
+// };
 
 // Example usage:
 // api.get('/some-endpoint').then(data => console.log(data)).catch(error => console.error(error));
