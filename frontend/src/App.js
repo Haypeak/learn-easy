@@ -18,6 +18,7 @@ import Quiz from './pages/Quiz';
 // Components
 import PrivateRoute from './components/PrivateRoute';
 import Layout from './components/Layout';
+import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
@@ -27,12 +28,13 @@ function App() {
           <ToastContainer position="top-right" autoClose={3000} />
           <Routes>
             {/* Public routes */}
+            <Route path="/" element={<LandingPage />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             
             {/* Protected routes */}
             <Route element={<Layout />}>
-              <Route path="/" element={
+              <Route path="/dashboard" element={
                 <PrivateRoute>
                   <Dashboard />
                 </PrivateRoute>
