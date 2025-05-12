@@ -15,7 +15,7 @@ def create_app():
     app.config.from_object(Config)
     mongo.init_app(app)
     JWTManager(app)
-    CORS(app, resources={r"/*": {"origins": "https://learneasyapp.netlify.app"}})
+    CORS(app)
     # Initialize OpenAI client
     client.api_key = app.config['OPEN_API_KEY']
     
@@ -32,7 +32,7 @@ def create_app():
   
     @app.after_request
     def after_request(response):
-        response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        # response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
         response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
         return response
