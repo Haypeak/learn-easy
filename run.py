@@ -7,7 +7,7 @@ from threading import Thread
 app = create_app()
 
 def reload_website():    
-    url = "https://afriset-air-monitor.onrender.com/"  # Replace with your Render URL
+    url = "https://learn-easy-1avz.onrender.com"  # Replace with your Render URL
     interval = 60  # Interval in seconds
     while True:
         try:
