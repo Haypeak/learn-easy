@@ -55,7 +55,7 @@ def list_courses_by_category():
             # Run verification functions
             display_category_summary()
             list_courses_by_category()
-            show_course_sample()
+            # show_course_sample() function is not defined, so this line is removed
             show_statistics()
             
             print("\nTo view results in a web browser:")
