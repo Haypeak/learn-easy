@@ -4,8 +4,8 @@ from app import mongo
 from bson import ObjectId
 from datetime import datetime
 import openai
+from app import client
 
-AIclient = openai.OpenAI(api_key='1b54a87aa050f5fc48571783d2d3692e4638a23e')
 
 learning_bp = Blueprint('learning', __name__)
 
@@ -364,7 +364,7 @@ def generate_quiz(course_id):
 
         # Generate quiz questions using OpenAI
         prompt = f"Generate {data['num_questions']} multiple-choice quiz questions on the topic: {data['topic']}."
-        response = AIclient.responses.create(
+        response = client.responses.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": "You are a quiz generator."},
