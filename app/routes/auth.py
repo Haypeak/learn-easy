@@ -11,6 +11,13 @@ auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route('/register', methods=['POST'])
 def register():
+    if request.method == 'OPTIONS':
+        # Respond to preflight request
+        response = jsonify({'message': 'Preflight request successful'})
+        response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'POST,OPTIONS')
+        return response, 200
     data = request.get_json()
     
     if not all(k in data for k in ['email', 'password', 'name']):
@@ -45,6 +52,13 @@ def register():
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
+    if request.method == 'OPTIONS':
+        # Respond to preflight request
+        response = jsonify({'message': 'Preflight request successful'})
+        response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'POST,OPTIONS')
+        return response, 200
     data = request.get_json()
     
     if not all(k in data for k in ['email', 'password']):
@@ -67,6 +81,13 @@ def login():
 @auth_bp.route('/profile', methods=['GET'])
 @jwt_required()
 def get_profile():
+    if request.method == 'OPTIONS':
+        # Respond to preflight request
+        response = jsonify({'message': 'Preflight request successful'})
+        response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'POST,OPTIONS')
+        return response, 200
     current_user_id = get_jwt_identity()
     user = mongo.db.users.find_one({'_id': ObjectId(current_user_id)})
     
@@ -83,6 +104,13 @@ def get_profile():
 @auth_bp.route('/profile', methods=['PUT'])
 @jwt_required()
 def update_profile():
+    if request.method == 'OPTIONS':
+        # Respond to preflight request
+        response = jsonify({'message': 'Preflight request successful'})
+        response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'POST,OPTIONS')
+        return response, 200
     current_user_id = get_jwt_identity()
     data = request.get_json()
 
@@ -116,6 +144,13 @@ def update_profile():
 @auth_bp.route('/enrolled-courses', methods=['GET'])
 @jwt_required()
 def get_enrolled_courses():
+    if request.method == 'OPTIONS':
+        # Respond to preflight request
+        response = jsonify({'message': 'Preflight request successful'})
+        response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'POST,OPTIONS')
+        return response, 200
     current_user_id = get_jwt_identity()
     print(f"Current User ID: {current_user_id}")
     user = mongo.db.users.find_one({'_id': ObjectId(current_user_id)})
@@ -202,6 +237,13 @@ def get_enrolled_courses():
 @auth_bp.route('/achievements', methods=['GET'])
 @jwt_required()
 def get_achievements():
+    if request.method == 'OPTIONS':
+        # Respond to preflight request
+        response = jsonify({'message': 'Preflight request successful'})
+        response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'POST,OPTIONS')
+        return response, 200
     current_user_id = get_jwt_identity()
     user = mongo.db.users.find_one({'_id': ObjectId(current_user_id)})
     
@@ -226,6 +268,13 @@ def get_achievements():
 
 @auth_bp.route('/update/<user_id>')
 def update_id(user_id):
+    if request.method == 'OPTIONS':
+        # Respond to preflight request
+        response = jsonify({'message': 'Preflight request successful'})
+        response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'POST,OPTIONS')
+        return response, 200
     data = request.get_json()
     update_user(mongo, user_id, data['formYear'], data['subjects'], None, None, None, data['schoolName'], data['learning_goals'], data['educationLevel'])
     return jsonify({"message": "User data updated"}), 200
