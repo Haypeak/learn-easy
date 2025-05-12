@@ -4,6 +4,7 @@ const api = {
   baseURL: process.env.REACT_APP_API_URL,
 
   async request(endpoint, options = {}) {
+    const token = localStorage.getItem('token');
     const headers = {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': 'https://learneasyapp.netlify.app',
