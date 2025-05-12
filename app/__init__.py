@@ -29,7 +29,13 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(learning_bp, url_prefix='/learning')
     app.register_blueprint(quiz_bp, url_prefix='/quiz')
-    
+  
+    @app.after_request
+    def after_request(response):
+        response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+        return response
     @app.route('/')
     @app.route('/health')
     def index():
