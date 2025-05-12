@@ -15,7 +15,7 @@ def create_app():
     app.config.from_object(Config)
     mongo.init_app(app)
     JWTManager(app)
-    CORS(app)
+    CORS(app, origins=["*"], supports_credentials=True)
     # Initialize OpenAI client
     client.api_key = app.config['OPEN_API_KEY']
     
