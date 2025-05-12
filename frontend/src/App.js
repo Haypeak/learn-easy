@@ -27,8 +27,8 @@ function App() {
         <div className="min-h-screen bg-gray-50">
           <ToastContainer position="top-right" autoClose={3000} />
           <Routes>
-            {/* Public routes */}
             <Route path="/" element={<LandingPage />} />
+            {/* Public routes */}
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             
@@ -57,6 +57,11 @@ function App() {
               <Route path="/profile" element={
                 <PrivateRoute>
                   <Profile />
+                </PrivateRoute>
+              } />
+              <Route path="/quiz" element={
+                <PrivateRoute>
+                  <Quiz />
                 </PrivateRoute>
               } />
             </Route>

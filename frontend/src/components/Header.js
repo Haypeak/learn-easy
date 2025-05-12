@@ -15,8 +15,13 @@ function Header() {
 
         {user ? (
           <>
-          {/* <Link to="/dashboard" className={styles.navLink}>Dashboard</Link> */}
+          <Link to="/dashboard" className={styles.navLink}>Dashboard</Link>
           <Link to="/features" className={styles.navLink}>Features</Link>
+          <div className={styles.dropdown}>
+            <Link to="/profile" className={styles.navLink}>Profile</Link>
+            <Link to="/courses" className={styles.navLink}>All Courses</Link>
+            
+          </div>
           <Link to="/about" className={styles.navLink}>About</Link>
           <button onClick={logout} className={styles.signOut}>Sign Out</button>
           </>

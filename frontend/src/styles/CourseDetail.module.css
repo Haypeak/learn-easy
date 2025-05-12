@@ -1,3 +1,64 @@
+/* Add these new styles for quizzes */
+.quizList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quizButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.quizButton:hover:not(:disabled) {
+  background-color: var(--primary-light, #f5f5f5);
+  border-color: var(--primary, #3f51b5);
+}
+
+.quizButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.quizInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.quizTitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-primary, #333);
+}
+
+.quizMeta {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+  padding: 0.2rem 0.5rem;
+  background-color: var(--background-light, #f5f5f5);
+  border-radius: 4px;
+}
+
+.quizDescription {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  text-align: left;
+}
+
 .container {
   padding: 2rem;
   max-width: 1200px;

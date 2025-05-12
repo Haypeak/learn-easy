@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext'; // Import AuthContext
 import Sidebar from '../components/Sidebar';
 import { BookOpen, Target, Award } from 'lucide-react'; // For previous dashboard icons
 import styles from '../styles/Dashboard.module.css';
+import Header from '../components/Header';
 
 
 function Dashboard() {
@@ -54,13 +55,7 @@ function Dashboard() {
 
   return (
     <div className={styles.dashboard}>
-      <Sidebar
-        userName={userName}
-        isOpen={isSidebarOpen}
-        toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
-        onLogout={handleLogout}
-        activeLink="dashboard"
-      />
+      <Header />
       <main className={styles.mainContent}>
         <div className={styles.welcome}>
           <h2>Welcome Back!</h2>

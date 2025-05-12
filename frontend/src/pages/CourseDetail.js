@@ -22,7 +22,7 @@ export default function CourseDetail() {
 
   const fetchCourseDetails = async () => {
     try {
-      const response = await api.get(`/courses/${courseId}`);
+      const response = await api.get(`/learning/course/${courseId}`);
       setCourse(response.data);
     } catch (err) {
       setError('Failed to fetch course details. Please try again later.');
@@ -32,9 +32,24 @@ export default function CourseDetail() {
     }
   };
 
+
+  const generateQuiz = async (topic, num_questions) => {
+    try {
+      const response = await api.post(`/learning/course/${courseId}/generate`, {
+        topic,
+        num_questions,
+      });
+      const updatedCourse = await api.get(`/learning/course/${courseId}`);
+      setCourse(updatedCourse.data);
+    } catch (err) {
+      setError('Failed to request quiz. Please try again later.');
+      console.error('Error requesting quiz:', err);
+    }
+  };
+
   const fetchEnrollmentStatus = async () => {
     try {
-      const response = await api.get(`/courses/${courseId}/enrollment`);
+      const response = await api.get(`/learning/course/${courseId}/enrollment`);
       setEnrollmentStatus(response.data);
     } catch (err) {
       console.error('Error fetching enrollment status:', err);
@@ -44,9 +59,9 @@ export default function CourseDetail() {
   const handleEnrollment = async () => {
     try {
       if (enrollmentStatus?.isEnrolled) {
-        await api.delete(`/courses/${courseId}/enrollment`);
+        await api.delete(`/learning/course/${courseId}/enrollment`);
       } else {
-        await api.post(`/courses/${courseId}/enrollment`);
+        await api.post(`/learning/course/${courseId}/enrollment`);
       }
       await fetchEnrollmentStatus();
     } catch (err) {
@@ -56,7 +71,7 @@ export default function CourseDetail() {
   };
 
   const navigateToQuiz = (quizId) => {
-    navigate(`/quiz/${quizId}`);
+    navigate(`/learning/quiz/${quizId}`);
   };
 
   if (loading) {
@@ -100,16 +115,50 @@ export default function CourseDetail() {
 
       <div className={styles.content}>
         <h2>Course Content</h2>
-        <div dangerouslySetInnerHTML={{ __html: course.content }} />
+      {course.contentItems.map((item, index) => (
+        <div key={index} className={styles.contentItem}>
+          {item.type === 'video' && (
+            <div className={styles.video}>
+              <h3>{item.title}</h3>
+              <video controls>
+                <source src={item.url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
+          {item.type === 'article' && (
+            <div className={styles.article}>
+              <h3>{item.title}</h3>
+              <div dangerouslySetInnerHTML={{'__html': item.content}} />
+            </div>
+          )}
+          {item.type === 'image' && (
+            <div className={styles.image}>
+              <h3>{item.title}</h3>
+              <img src={item.url} alt={item.title} />
+            </div>
+          )}
+        </div>
+      ))}
       </div>
 
       <div className={styles.structure}>
         <h2>Course Structure</h2>
+        {/* {console.log(course.structure)} */}
+            
+             <div className={styles.noQuizzes}>
+                <p>No quizzes available for this section.</p>
+                <button
+                  onClick={() => generateQuiz(course.title, 20)}
+                  className={styles.generateQuizButton}
+                >
+                  Generate a Quiz
+                </button>
+              </div>
         {course.structure.sections.map((section, index) => (
           <div key={index} className={styles.section}>
             <h3>{section.title}</h3>
             <p>{section.description}</p>
-            
             {section.quizzes.length > 0 && (
               <div className={styles.quizzes}>
                 <h4>Quizzes</h4>

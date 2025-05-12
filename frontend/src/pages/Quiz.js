@@ -43,7 +43,7 @@ export default function Quiz() {
   const fetchQuiz = async () => {
     try {
       setLoading(true);
-      const response = await api.get(`/quizzes/${quizId}`);
+      const response = await api.get(`/quiz/quizzes/${quizId}`);
       setQuiz(response.data);
     } catch (err) {
       setError('Failed to fetch quiz. Please try again later.');

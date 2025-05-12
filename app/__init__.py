@@ -3,6 +3,7 @@ from flask_pymongo import PyMongo
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from config import Config
+import openai
 
 mongo = PyMongo()
 
@@ -13,6 +14,7 @@ def create_app():
     mongo.init_app(app)
     JWTManager(app)
     CORS(app)
+    
 
     # Register Blueprints
     from app.routes.auth import auth_bp
@@ -25,6 +27,7 @@ def create_app():
     app.register_blueprint(quiz_bp, url_prefix='/quiz')
     
     @app.route('/')
+    @app.route('/health')
     def index():
         return render_template_string("""
         <!doctype html>

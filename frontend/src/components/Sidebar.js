@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaUser, FaTachometerAlt, FaCog, FaQuestionCircle, FaSignOutAlt, FaBars, FaTimes } from 'react-icons/fa';
 import styles from '../styles/Sidebar.module.css';
+import { Link } from 'react-router-dom';
 
 function Sidebar({ userName, isOpen, toggleSidebar, onLogout, activeLink }) {
   const navItems = [
@@ -16,13 +17,14 @@ function Sidebar({ userName, isOpen, toggleSidebar, onLogout, activeLink }) {
         <button className={styles.toggleButton} onClick={toggleSidebar}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
+        <Link to="/profile" className={styles.logo}>
         <div className={styles.userProfile}>
           <FaUser className={styles.userIcon} />
           <div>
-            <p>Hello,</p>
             <p className={styles.userName}>{userName}</p>
           </div>
         </div>
+        </Link>
       </div>
       <nav className={styles.nav}>
         {navItems.map((item) => (
