@@ -1,12 +1,52 @@
 import axios from 'axios';
 
-const api = axios.create({
+const api = {
   baseURL: process.env.REACT_APP_API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-    "Access-Control-Allow-Origin": "https://learneasyapp.netlify.app",
+
+  async request(endpoint, options = {}) {
+    const token = localStorage.getItem('token');
+    const headers = {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': 'https://learneasyapp.netlify.app',
+      ...options.headers,
+    };
+
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+    }
+
+    const response = await fetch(`${this.baseURL}${endpoint}`, {
+      ...options,
+      headers,
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        localStorage.removeItem('token');
+        window.location.href = '/signin';
+      }
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return response.json();
   },
-});
+
+  get(endpoint, options = {}) {
+    return this.request(endpoint, { method: 'GET', ...options });
+  },
+
+  post(endpoint, data, options = {}) {
+    return this.request(endpoint, { method: 'POST', body: JSON.stringify(data), ...options });
+  },
+
+  put(endpoint, data, options = {}) {
+    return this.request(endpoint, { method: 'PUT', body: JSON.stringify(data), ...options });
+  },
+
+  delete(endpoint, options = {}) {
+    return this.request(endpoint, { method: 'DELETE', ...options });
+  },
+};
 // const api = {
 //   baseURL: process.env.REACT_APP_API_URL,
   
