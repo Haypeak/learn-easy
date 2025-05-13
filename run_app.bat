@@ -14,7 +14,7 @@ start cmd /k "python run.py"
 
 :: Navigate to the frontend directory and install Node.js dependencies
 echo Installing frontend dependencies...
-cd ..\%FRONTEND_DIR%
+cd .\%FRONTEND_DIR%
 npm install
 
 :: Start the React server
