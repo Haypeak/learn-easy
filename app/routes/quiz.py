@@ -140,53 +140,54 @@ def generate_quiz(course_id):
         topic = data['topic']
         num_questions = data['num_questions']
 
-        # Use OpenAI to generate quiz questions
-        openai.api_key = "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"  # Replace with your OpenAI API key
-        prompt = (
-            f"Generate {num_questions} multiple-choice questions on the topic '{topic}'. "
-            "Each question should include 4 options and indicate the correct answer."
-        )
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            max_tokens=1500,
-            n=1,
-            stop=None,
-            temperature=0.7
-        )
+        # # Use OpenAI to generate quiz questions
+        # openai.api_key = "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"  # Replace with your OpenAI API key
+        # prompt = (
+        #     f"Generate {num_questions} multiple-choice questions on the topic '{topic}'. "
+        #     "Each question should include 4 options and indicate the correct answer."
+        # )
+        # response = openai.Completion.create(
+        #     engine="text-davinci-003",
+        #     prompt=prompt,
+        #     max_tokens=1500,
+        #     n=1,
+        #     stop=None,
+        #     temperature=0.7
+        # )
 
-        # Parse the AI response
-        questions = []
-        ai_output = response.choices[0].text.strip().split("\n\n")
-        for q in ai_output:
-            lines = q.split("\n")
-            if len(lines) < 5:
-                continue
-            question_text = lines[0]
-            options = lines[1:5]
-            correct_answer = lines[5].split(":")[-1].strip() if len(lines) > 5 else None
-            questions.append({
-                'text': question_text,
-                'options': [opt.split(" ", 1)[-1] for opt in options],
-                'correct_answer': correct_answer,
-                'points': 1
-            })
+        # # Parse the AI response
+        # questions = []
+        # ai_output = response.choices[0].text.strip().split("\n\n")
+        # for q in ai_output:
+        #     lines = q.split("\n")
+        #     if len(lines) < 5:
+        #         continue
+        #     question_text = lines[0]
+        #     options = lines[1:5]
+        #     correct_answer = lines[5].split(":")[-1].strip() if len(lines) > 5 else None
+        #     questions.append({
+        #         'text': question_text,
+        #         'options': [opt.split(" ", 1)[-1] for opt in options],
+        #         'correct_answer': correct_answer,
+        #         'points': 1
+        #     })
 
-        # Create the quiz document
-        quiz = {
-            'course_id': ObjectId(course_id),
-            'title': f"Quiz on {topic}",
-            'description': f"A quiz generated on the topic '{topic}'",
-            'time_limit': data.get('time_limit', 0),
-            'total_points': len(questions),
-            'questions': questions,
-            'created_at': datetime.utcnow()
-        }
+        # # Create the quiz document
+        # quiz = {
+        #     'course_id': ObjectId(course_id),
+        #     'title': f"Quiz on {topic}",
+        #     'description': f"A quiz generated on the topic '{topic}'",
+        #     'time_limit': data.get('time_limit', 0),
+        #     'total_points': len(questions),
+        #     'questions': questions,
+        #     'created_at': datetime.utcnow()
+        # }
 
-        # Insert the quiz into the database
-        result = mongo.db.quizzes.insert_one(quiz)
+        # # Insert the quiz into the database
+        # result = mongo.db.quizzes.insert_one(quiz)
 
-        return jsonify({'message': 'Quiz generated successfully', 'quiz_id': str(result.inserted_id)}), 201
+        # return jsonify({'message': 'Quiz generated successfully', 'quiz_id': str(result.inserted_id)}), 201
+        return jsonify({'message': 'Not yet Implemented'}), 201
     except Exception as e:
         print(f"Error in generate_quiz: {str(e)}")
         return jsonify({'error': str(e)}), 500

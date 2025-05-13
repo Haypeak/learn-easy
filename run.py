@@ -5,7 +5,6 @@ import time
 from threading import Thread
 
 app = create_app()
-
 def reload_website():    
     url = "https://learn-easy-1avz.onrender.com"  # Replace with your Render URL
     interval = 60  # Interval in seconds

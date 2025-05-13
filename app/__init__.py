@@ -7,7 +7,7 @@ import openai
 
 mongo = PyMongo()
 
-client = openai.OpenAI()
+# client = openai.OpenAI()
 
 def create_app():
 
@@ -17,7 +17,7 @@ def create_app():
     JWTManager(app)
     CORS(app)
     # Initialize OpenAI client
-    client.api_key = app.config['OPEN_API_KEY']
+    # client.api_key = app.config['OPEN_API_KEY']
     
 
     # Register Blueprints
