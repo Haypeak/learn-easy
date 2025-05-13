@@ -19,7 +19,7 @@ npm install
 
 :: Start the React server
 echo Starting the frontend server...
-start cmd /k "npm start"
+start cmd /k "npm run start"
 
 :: Return to the root directory
 cd ..
