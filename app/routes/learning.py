@@ -4,7 +4,7 @@ from app import mongo
 from bson import ObjectId
 from datetime import datetime
 import openai
-from app import client
+# from app import client
 
 
 learning_bp = Blueprint('learning', __name__)
@@ -348,47 +348,47 @@ def create_test_course():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@learning_bp.route('/course/<course_id>/generate', methods=['POST'])
-@jwt_required()
-def generate_quiz(course_id):
-    try:
-        # Get the course to ensure it exists
-        course = mongo.db.courses.find_one({'_id': ObjectId(course_id)})
-        if not course:
-            return jsonify({'error': 'Course not found'}), 404
+# @learning_bp.route('/course/<course_id>/generate', methods=['POST'])
+# @jwt_required()
+# def generate_quiz(course_id):
+#     try:
+#         # Get the course to ensure it exists
+#         course = mongo.db.courses.find_one({'_id': ObjectId(course_id)})
+#         if not course:
+#             return jsonify({'error': 'Course not found'}), 404
 
-        # Get the request data
-        data = request.get_json()
-        if 'topic' not in data or 'num_questions' not in data:
-            return jsonify({'error': 'Missing topic or num_questions'}), 400
+#         # Get the request data
+#         data = request.get_json()
+#         if 'topic' not in data or 'num_questions' not in data:
+#             return jsonify({'error': 'Missing topic or num_questions'}), 400
 
-        # Generate quiz questions using OpenAI
-        prompt = f"Generate {data['num_questions']} multiple-choice quiz questions on the topic: {data['topic']}."
-        response = client.responses.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": "You are a quiz generator."},
-                {"role": "user", "content": prompt}
-            ],
-            max_tokens=500,
-            temperature=0.7
-        )
+#         # Generate quiz questions using OpenAI
+#         prompt = f"Generate {data['num_questions']} multiple-choice quiz questions on the topic: {data['topic']}."
+#         response = client.responses.create(
+#             model="gpt-4",
+#             messages=[
+#                 {"role": "system", "content": "You are a quiz generator."},
+#                 {"role": "user", "content": prompt}
+#             ],
+#             max_tokens=500,
+#             temperature=0.7
+#         )
 
-        # Parse the AI's response
-        quiz_questions = response['choices'][0]['message']['content']
-        print("Generated Questions:", quiz_questions)
+#         # Parse the AI's response
+#         quiz_questions = response['choices'][0]['message']['content']
+#         print("Generated Questions:", quiz_questions)
 
-        # Store the generated quiz in the database
-        quiz = {
-            "title": f"Quiz on {data['topic']}",
-            "description": f"Automatically generated quiz on the topic: {data['topic']}",
-            "course_id": ObjectId(course_id),
-            "questions": quiz_questions,  # Store the raw AI response or parse it into structured data
-            "created_at": datetime.utcnow()
-        }
-        mongo.db.quizzes.insert_one(quiz)
+#         # Store the generated quiz in the database
+#         quiz = {
+#             "title": f"Quiz on {data['topic']}",
+#             "description": f"Automatically generated quiz on the topic: {data['topic']}",
+#             "course_id": ObjectId(course_id),
+#             "questions": quiz_questions,  # Store the raw AI response or parse it into structured data
+#             "created_at": datetime.utcnow()
+#         }
+#         mongo.db.quizzes.insert_one(quiz)
 
-        return jsonify({"message": "Quiz generated and stored successfully", "quiz": quiz}), 201
+#         return jsonify({"message": "Quiz generated and stored successfully", "quiz": quiz}), 201
 
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+#     except Exception as e:
+#         return jsonify({'error': str(e)}), 500
