@@ -15,11 +15,19 @@ def create_app():
     app.config.from_object(Config)
     mongo.init_app(app)
     JWTManager(app)
-    CORS(app)
+    
+    # Configure CORS with explicit settings
+    CORS(app, resources={
+        r"/*": {
+            "origins": ["https://learneasyapp.netlify.app", "http://localhost:3000"],
+            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"]
+        }
+    })
+    
     # Initialize OpenAI client
     client.api_key = app.config['OPENAI_API_KEY']
     
-
     # Register Blueprints
     from app.routes.auth import auth_bp
     from app.routes.learning import learning_bp
@@ -32,9 +40,13 @@ def create_app():
   
     @app.after_request
     def after_request(response):
-        # response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-        response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+        # Set CORS headers if not already set by Flask-CORS
+        if 'Access-Control-Allow-Origin' not in response.headers:
+            response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+        if 'Access-Control-Allow-Headers' not in response.headers:
+            response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+        if 'Access-Control-Allow-Methods' not in response.headers:
+            response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
         return response
     @app.route('/')
     @app.route('/health')
