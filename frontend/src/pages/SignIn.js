@@ -146,9 +146,11 @@ function SignIn() {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      await signIn(values.email, values.password);
-      toast.success('Signed in successfully!');
-      navigate('/dashboard');
+      const response = await signIn(values.email, values.password);
+      if (response) {
+        toast.success('Signed in successfully!');
+        navigate('/dashboard');
+      }
     } catch (error) {
       toast.error(error.message);
     } finally {

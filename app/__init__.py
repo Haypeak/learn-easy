@@ -19,7 +19,7 @@ def create_app():
     # Configure CORS with explicit settings
     CORS(app, resources={
         r"/*": {
-            "origins": ["https://learneasyapp.netlify.app", "http://localhost:3000"],
+            "origins": ["https://learneasyapp.netlify.app", "http://localhost:3000", "http://localhost:5000"],
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type", "Authorization"]
         }
@@ -43,6 +43,7 @@ def create_app():
         # Set CORS headers if not already set by Flask-CORS
         if 'Access-Control-Allow-Origin' not in response.headers:
             response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+            # response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
         if 'Access-Control-Allow-Headers' not in response.headers:
             response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
         if 'Access-Control-Allow-Methods' not in response.headers:
