@@ -17,13 +17,15 @@ def create_app():
     JWTManager(app)
     
     # Configure CORS with explicit settings
-    CORS(app, resources={
-        r"/*": {
-            "origins": ["https://learneasyapp.netlify.app", "http://localhost:3000", "http://localhost:5000"],
-            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-            "allow_headers": ["Content-Type", "Authorization"]
-        }
-    })
+    CORS(app)
+    # CORS(app, resources={
+    #     r"/*": {
+    #         "origins": ["https://learneasyapp.netlify.app", "http://localhost:3000", "http://localhost:5000"],
+    #         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    #         "allow_headers": ["Content-Type", "Authorization"]
+    #     }
+        
+    # })
     
     # Initialize OpenAI client
     client.api_key = app.config['OPENAI_API_KEY']
