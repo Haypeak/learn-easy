@@ -1,0 +1,207 @@
+2025-06-06 10:32:56,005 - INFO - Starting video content update process...
+2025-06-06 10:32:59,365 - INFO - Found 60 video content items to update
+2025-06-06 10:32:59,936 - INFO - Updated video: 'Getting Started with Python - Video Lesson' for course: 'Introduction to Python Programming'
+2025-06-06 10:32:59,937 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/getting-started-with-python</p>
+2025-06-06 10:32:59,937 - INFO - New content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:00,186 - INFO - Updated video: 'Variables and Data Types - Video Lesson' for course: 'Introduction to Python Programming'
+2025-06-06 10:33:00,186 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/variables-and-data-types</p>
+2025-06-06 10:33:00,187 - INFO - New content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:00,592 - INFO - Updated video: 'Control Structures - Video Lesson' for course: 'Introduction to Python Programming'
+2025-06-06 10:33:00,592 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/control-structures</p>
+2025-06-06 10:33:00,593 - INFO - New content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:00,853 - INFO - Updated video: 'JavaScript Fundamentals - Video Lesson' for course: 'Web Development with JavaScript'
+2025-06-06 10:33:00,853 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/javascript-fundamentals</p>
+2025-06-06 10:33:00,854 - INFO - New content: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:33:01,203 - INFO - Updated video: 'DOM Manipulation - Video Lesson' for course: 'Web Development with JavaScript'
+2025-06-06 10:33:01,203 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/dom-manipulation</p>
+2025-06-06 10:33:01,204 - INFO - New content: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:33:01,490 - INFO - Updated video: 'Modern JavaScript (ES6+) - Video Lesson' for course: 'Web Development with JavaScript'
+2025-06-06 10:33:01,491 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/modern-javascript-(es6+)</p>
+2025-06-06 10:33:01,491 - INFO - New content: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:33:01,717 - INFO - Updated video: 'Asynchronous JavaScript - Video Lesson' for course: 'Web Development with JavaScript'
+2025-06-06 10:33:01,717 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/asynchronous-javascript</p>
+2025-06-06 10:33:01,718 - INFO - New content: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:33:01,990 - INFO - Updated video: 'Advanced Tree Structures - Video Lesson' for course: 'Advanced Data Structures and Algorithms'
+2025-06-06 10:33:01,990 - INFO - Old content: <p>Video URL: https://example.com/videos/advanced/advanced-tree-structures</p>
+2025-06-06 10:33:01,991 - INFO - New content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:02,236 - INFO - Updated video: 'Graph Algorithms - Video Lesson' for course: 'Advanced Data Structures and Algorithms'
+2025-06-06 10:33:02,236 - INFO - Old content: <p>Video URL: https://example.com/videos/advanced/graph-algorithms</p>
+2025-06-06 10:33:02,236 - INFO - New content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:02,544 - INFO - Updated video: 'Dynamic Programming - Video Lesson' for course: 'Advanced Data Structures and Algorithms'
+2025-06-06 10:33:02,544 - INFO - Old content: <p>Video URL: https://example.com/videos/advanced/dynamic-programming</p>
+2025-06-06 10:33:02,544 - INFO - New content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:02,794 - INFO - Updated video: 'Advanced Algorithm Analysis - Video Lesson' for course: 'Advanced Data Structures and Algorithms'
+2025-06-06 10:33:02,794 - INFO - Old content: <p>Video URL: https://example.com/videos/advanced/advanced-algorithm-analysis</p>
+2025-06-06 10:33:02,795 - INFO - New content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:03,036 - INFO - Updated video: 'Cybersecurity Fundamentals - Video Lesson' for course: 'Introduction to Cybersecurity'
+2025-06-06 10:33:03,036 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/cybersecurity-fundamentals</p>
+2025-06-06 10:33:03,037 - INFO - New content: https://www.youtube.com/embed/inWWhr5tnEA
+2025-06-06 10:33:03,276 - INFO - Updated video: 'Network Security - Video Lesson' for course: 'Introduction to Cybersecurity'
+2025-06-06 10:33:03,276 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/network-security</p>
+2025-06-06 10:33:03,276 - INFO - New content: https://www.youtube.com/embed/3QhU9jd03a0
+2025-06-06 10:33:03,554 - INFO - Updated video: 'Security Risk Assessment - Video Lesson' for course: 'Introduction to Cybersecurity'
+2025-06-06 10:33:03,555 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/security-risk-assessment</p>
+2025-06-06 10:33:03,555 - INFO - New content: https://www.youtube.com/embed/inWWhr5tnEA
+2025-06-06 10:33:04,320 - INFO - Updated video: 'Security Best Practices - Video Lesson' for course: 'Introduction to Cybersecurity'
+2025-06-06 10:33:04,321 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/security-best-practices</p>
+2025-06-06 10:33:04,322 - INFO - New content: https://www.youtube.com/embed/inWWhr5tnEA
+2025-06-06 10:33:04,594 - INFO - Updated video: 'Database Design Principles - Video Lesson' for course: 'Database Management Systems'
+2025-06-06 10:33:04,594 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/database-design-principles</p>
+2025-06-06 10:33:04,594 - INFO - New content: https://www.youtube.com/embed/ztHopE5Wnpc
+2025-06-06 10:33:04,850 - INFO - Updated video: 'SQL Fundamentals - Video Lesson' for course: 'Database Management Systems'
+2025-06-06 10:33:04,850 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/sql-fundamentals</p>
+2025-06-06 10:33:04,851 - INFO - New content: https://www.youtube.com/embed/ztHopE5Wnpc
+2025-06-06 10:33:05,310 - INFO - Updated video: 'NoSQL Database Systems - Video Lesson' for course: 'Database Management Systems'
+2025-06-06 10:33:05,310 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/nosql-database-systems</p>
+2025-06-06 10:33:05,310 - INFO - New content: https://www.youtube.com/embed/ztHopE5Wnpc
+2025-06-06 10:33:05,596 - INFO - Updated video: 'Database Administration - Video Lesson' for course: 'Database Management Systems'
+2025-06-06 10:33:05,597 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/database-administration</p>
+2025-06-06 10:33:05,597 - INFO - New content: https://www.youtube.com/embed/ztHopE5Wnpc
+2025-06-06 10:33:05,830 - INFO - Updated video: 'Introduction to Cloud Computing - Video Lesson' for course: 'Cloud Computing Fundamentals'
+2025-06-06 10:33:05,830 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/introduction-to-cloud-computing</p>
+2025-06-06 10:33:05,830 - INFO - New content: https://www.youtube.com/embed/M988_fsOSWo
+2025-06-06 10:33:06,130 - INFO - Updated video: 'Cloud Service Models - Video Lesson' for course: 'Cloud Computing Fundamentals'
+2025-06-06 10:33:06,131 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/cloud-service-models</p>
+2025-06-06 10:33:06,131 - INFO - New content: https://www.youtube.com/embed/M988_fsOSWo
+2025-06-06 10:33:06,437 - INFO - Updated video: 'Major Cloud Platforms - Video Lesson' for course: 'Cloud Computing Fundamentals'
+2025-06-06 10:33:06,437 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/major-cloud-platforms</p>
+2025-06-06 10:33:06,437 - INFO - New content: https://www.youtube.com/embed/M988_fsOSWo
+2025-06-06 10:33:06,737 - INFO - Updated video: 'Cloud Security - Video Lesson' for course: 'Cloud Computing Fundamentals'
+2025-06-06 10:33:06,738 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/cloud-security</p>
+2025-06-06 10:33:06,738 - INFO - New content: https://www.youtube.com/embed/M988_fsOSWo
+2025-06-06 10:33:07,038 - INFO - Updated video: 'Network Fundamentals - Video Lesson' for course: 'Network Administration Basics'
+2025-06-06 10:33:07,038 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/network-fundamentals</p>
+2025-06-06 10:33:07,039 - INFO - New content: https://www.youtube.com/embed/3QhU9jd03a0
+2025-06-06 10:33:07,485 - INFO - Updated video: 'IP Addressing and Subnetting - Video Lesson' for course: 'Network Administration Basics'
+2025-06-06 10:33:07,486 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/ip-addressing-and-subnetting</p>
+2025-06-06 10:33:07,486 - INFO - New content: https://www.youtube.com/embed/3QhU9jd03a0
+2025-06-06 10:33:07,759 - INFO - Updated video: 'Network Infrastructure - Video Lesson' for course: 'Network Administration Basics'
+2025-06-06 10:33:07,759 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/network-infrastructure</p>
+2025-06-06 10:33:07,760 - INFO - New content: https://www.youtube.com/embed/3QhU9jd03a0
+2025-06-06 10:33:08,011 - INFO - Updated video: 'Network Troubleshooting - Video Lesson' for course: 'Network Administration Basics'
+2025-06-06 10:33:08,011 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/network-troubleshooting</p>
+2025-06-06 10:33:08,011 - INFO - New content: https://www.youtube.com/embed/3QhU9jd03a0
+2025-06-06 10:33:08,321 - INFO - Updated video: 'Limits and Continuity - Video Lesson' for course: 'Calculus I'
+2025-06-06 10:33:08,321 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/limits-and-continuity</p>
+2025-06-06 10:33:08,321 - INFO - New content: https://www.youtube.com/embed/WsQQvHm4lSw
+2025-06-06 10:33:08,554 - INFO - Updated video: 'Derivatives and Differentiation - Video Lesson' for course: 'Calculus I'
+2025-06-06 10:33:08,554 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/derivatives-and-differentiation</p>
+2025-06-06 10:33:08,554 - INFO - New content: https://www.youtube.com/embed/WsQQvHm4lSw
+2025-06-06 10:33:08,785 - INFO - Updated video: 'Applications of Derivatives - Video Lesson' for course: 'Calculus I'
+2025-06-06 10:33:08,786 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/applications-of-derivatives</p>
+2025-06-06 10:33:08,786 - INFO - New content: https://www.youtube.com/embed/WsQQvHm4lSw
+2025-06-06 10:33:09,035 - INFO - Updated video: 'Curve Sketching - Video Lesson' for course: 'Calculus I'
+2025-06-06 10:33:09,036 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/curve-sketching</p>
+2025-06-06 10:33:09,036 - INFO - New content: https://www.youtube.com/embed/WsQQvHm4lSw
+2025-06-06 10:33:09,261 - INFO - Updated video: 'Vectors and Vector Spaces - Video Lesson' for course: 'Linear Algebra'
+2025-06-06 10:33:09,262 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/vectors-and-vector-spaces</p>
+2025-06-06 10:33:09,262 - INFO - New content: https://www.youtube.com/embed/JnTa9XtvmfI
+2025-06-06 10:33:09,547 - INFO - Updated video: 'Matrices and Matrix Operations - Video Lesson' for course: 'Linear Algebra'
+2025-06-06 10:33:09,547 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/matrices-and-matrix-operations</p>
+2025-06-06 10:33:09,547 - INFO - New content: https://www.youtube.com/embed/JnTa9XtvmfI
+2025-06-06 10:33:09,781 - INFO - Updated video: 'Linear Transformations - Video Lesson' for course: 'Linear Algebra'
+2025-06-06 10:33:09,781 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/linear-transformations</p>
+2025-06-06 10:33:09,782 - INFO - New content: https://www.youtube.com/embed/JnTa9XtvmfI
+2025-06-06 10:33:10,046 - INFO - Updated video: 'Eigenvalues and Eigenvectors - Video Lesson' for course: 'Linear Algebra'
+2025-06-06 10:33:10,047 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/eigenvalues-and-eigenvectors</p>
+2025-06-06 10:33:10,047 - INFO - New content: https://www.youtube.com/embed/JnTa9XtvmfI
+2025-06-06 10:33:10,303 - INFO - Updated video: 'Descriptive Statistics - Video Lesson' for course: 'Statistics and Probability'
+2025-06-06 10:33:10,304 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/descriptive-statistics</p>
+2025-06-06 10:33:10,304 - INFO - New content: https://www.youtube.com/embed/zouPoc49xbk
+2025-06-06 10:33:10,595 - INFO - Updated video: 'Probability Theory - Video Lesson' for course: 'Statistics and Probability'
+2025-06-06 10:33:10,596 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/probability-theory</p>
+2025-06-06 10:33:10,596 - INFO - New content: https://www.youtube.com/embed/zouPoc49xbk
+2025-06-06 10:33:10,822 - INFO - Updated video: 'Statistical Inference - Video Lesson' for course: 'Statistics and Probability'
+2025-06-06 10:33:10,823 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/statistical-inference</p>
+2025-06-06 10:33:10,823 - INFO - New content: https://www.youtube.com/embed/zouPoc49xbk
+2025-06-06 10:33:11,089 - INFO - Updated video: 'Regression Analysis - Video Lesson' for course: 'Statistics and Probability'
+2025-06-06 10:33:11,090 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/regression-analysis</p>
+2025-06-06 10:33:11,090 - INFO - New content: https://www.youtube.com/embed/zouPoc49xbk
+2025-06-06 10:33:11,414 - INFO - Updated video: 'Logic and Proofs - Video Lesson' for course: 'Discrete Mathematics'
+2025-06-06 10:33:11,415 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/logic-and-proofs</p>
+2025-06-06 10:33:11,415 - INFO - New content: https://www.youtube.com/embed/2gFA9y6X2QA
+2025-06-06 10:33:11,733 - INFO - Updated video: 'Set Theory and Relations - Video Lesson' for course: 'Discrete Mathematics'
+2025-06-06 10:33:11,733 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/set-theory-and-relations</p>
+2025-06-06 10:33:11,734 - INFO - New content: https://www.youtube.com/embed/2gFA9y6X2QA
+2025-06-06 10:33:11,996 - INFO - Updated video: 'Combinatorics - Video Lesson' for course: 'Discrete Mathematics'
+2025-06-06 10:33:11,997 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/combinatorics</p>
+2025-06-06 10:33:11,997 - INFO - New content: https://www.youtube.com/embed/2gFA9y6X2QA
+2025-06-06 10:33:12,268 - INFO - Updated video: 'Graph Theory - Video Lesson' for course: 'Discrete Mathematics'
+2025-06-06 10:33:12,268 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/graph-theory</p>
+2025-06-06 10:33:12,268 - INFO - New content: https://www.youtube.com/embed/2gFA9y6X2QA
+2025-06-06 10:33:12,514 - INFO - Updated video: 'Elements of Fiction - Video Lesson' for course: 'Creative Writing'
+2025-06-06 10:33:12,515 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/elements-of-fiction</p>
+2025-06-06 10:33:12,515 - INFO - New content: https://www.youtube.com/embed/GgkRoYPLhts
+2025-06-06 10:33:12,759 - INFO - Updated video: 'Poetic Forms and Techniques - Video Lesson' for course: 'Creative Writing'
+2025-06-06 10:33:12,759 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/poetic-forms-and-techniques</p>
+2025-06-06 10:33:12,759 - INFO - New content: https://www.youtube.com/embed/GgkRoYPLhts
+2025-06-06 10:33:13,100 - INFO - Updated video: 'Creative Non-Fiction - Video Lesson' for course: 'Creative Writing'
+2025-06-06 10:33:13,101 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/creative-non-fiction</p>
+2025-06-06 10:33:13,101 - INFO - New content: https://www.youtube.com/embed/GgkRoYPLhts
+2025-06-06 10:33:13,371 - INFO - Updated video: 'Narrative Voice and Style - Video Lesson' for course: 'Creative Writing'
+2025-06-06 10:33:13,371 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/narrative-voice-and-style</p>
+2025-06-06 10:33:13,371 - INFO - New content: https://www.youtube.com/embed/GgkRoYPLhts
+2025-06-06 10:33:13,867 - INFO - Updated video: 'Business Writing Essentials - Video Lesson' for course: 'Business Communication'
+2025-06-06 10:33:13,868 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/business-writing-essentials</p>
+2025-06-06 10:33:13,868 - INFO - New content: https://www.youtube.com/embed/N4ZDBOc2tX8
+2025-06-06 10:33:14,140 - INFO - Updated video: 'Professional Email Communication - Video Lesson' for course: 'Business Communication'
+2025-06-06 10:33:14,140 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/professional-email-communication</p>
+2025-06-06 10:33:14,141 - INFO - New content: https://www.youtube.com/embed/RO16LNL-YJY
+2025-06-06 10:33:14,625 - INFO - Updated video: 'Presentation Skills - Video Lesson' for course: 'Business Communication'
+2025-06-06 10:33:14,626 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/presentation-skills</p>
+2025-06-06 10:33:14,626 - INFO - New content: https://www.youtube.com/embed/RO16LNL-YJY
+2025-06-06 10:33:14,901 - INFO - Updated video: 'Interpersonal Communication - Video Lesson' for course: 'Business Communication'
+2025-06-06 10:33:14,902 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/interpersonal-communication</p>
+2025-06-06 10:33:14,902 - INFO - New content: https://www.youtube.com/embed/RO16LNL-YJY
+2025-06-06 10:33:15,185 - INFO - Updated video: 'Speech Structure and Organization - Video Lesson' for course: 'Public Speaking'
+2025-06-06 10:33:15,185 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/speech-structure-and-organization</p>
+2025-06-06 10:33:15,186 - INFO - New content: https://www.youtube.com/embed/Unzc731iCUY
+2025-06-06 10:33:15,420 - INFO - Updated video: 'Delivery and Body Language - Video Lesson' for course: 'Public Speaking'
+2025-06-06 10:33:15,421 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/delivery-and-body-language</p>
+2025-06-06 10:33:15,421 - INFO - New content: https://www.youtube.com/embed/Unzc731iCUY
+2025-06-06 10:33:15,674 - INFO - Updated video: 'Persuasive Speaking - Video Lesson' for course: 'Public Speaking'
+2025-06-06 10:33:15,674 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/persuasive-speaking</p>
+2025-06-06 10:33:15,675 - INFO - New content: https://www.youtube.com/embed/Unzc731iCUY
+2025-06-06 10:33:15,899 - INFO - Updated video: 'Speaking in Different Contexts - Video Lesson' for course: 'Public Speaking'
+2025-06-06 10:33:15,900 - INFO - Old content: <p>Video URL: https://example.com/videos/beginner/speaking-in-different-contexts</p>
+2025-06-06 10:33:15,900 - INFO - New content: https://www.youtube.com/embed/Unzc731iCUY
+2025-06-06 10:33:16,207 - INFO - Updated video: 'Introduction to Literary Analysis - Video Lesson' for course: 'English Literature Fundamentals'
+2025-06-06 10:33:16,207 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/introduction-to-literary-analysis</p>
+2025-06-06 10:33:16,208 - INFO - New content: https://www.youtube.com/embed/QM4LzhF-Vp8
+2025-06-06 10:33:16,456 - INFO - Updated video: 'Poetry Through the Ages - Video Lesson' for course: 'English Literature Fundamentals'
+2025-06-06 10:33:16,456 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/poetry-through-the-ages</p>
+2025-06-06 10:33:16,456 - INFO - New content: https://www.youtube.com/embed/QM4LzhF-Vp8
+2025-06-06 10:33:16,724 - INFO - Updated video: 'Evolution of the Novel - Video Lesson' for course: 'English Literature Fundamentals'
+2025-06-06 10:33:16,724 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/evolution-of-the-novel</p>
+2025-06-06 10:33:16,724 - INFO - New content: https://www.youtube.com/embed/QM4LzhF-Vp8
+2025-06-06 10:33:16,951 - INFO - Updated video: 'Dramatic Literature - Video Lesson' for course: 'English Literature Fundamentals'
+2025-06-06 10:33:16,951 - INFO - Old content: <p>Video URL: https://example.com/videos/intermediate/dramatic-literature</p>
+2025-06-06 10:33:16,952 - INFO - New content: https://www.youtube.com/embed/QM4LzhF-Vp8
+2025-06-06 10:33:17,184 - INFO - Updated video: 'Python Installation Demo' for course: 'Introduction to Python Programming'
+2025-06-06 10:33:17,185 - INFO - Old content: https://www.youtube.com/embed/YYXdXT2l-Gg
+2025-06-06 10:33:17,185 - INFO - New content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:17,185 - INFO - Successfully updated 60 out of 60 video items
+2025-06-06 10:33:17,330 - INFO - 
+VERIFICATION OF UPDATES:
+2025-06-06 10:33:17,453 - INFO - Video: 'Getting Started with Python - Video Lesson'
+2025-06-06 10:33:17,454 - INFO - Course: 'Introduction to Python Programming'
+2025-06-06 10:33:17,454 - INFO - Content URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:17,454 - INFO - ---
+2025-06-06 10:33:17,572 - INFO - Video: 'Variables and Data Types - Video Lesson'
+2025-06-06 10:33:17,573 - INFO - Course: 'Introduction to Python Programming'
+2025-06-06 10:33:17,573 - INFO - Content URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:17,573 - INFO - ---
+2025-06-06 10:33:17,695 - INFO - Video: 'Control Structures - Video Lesson'
+2025-06-06 10:33:17,695 - INFO - Course: 'Introduction to Python Programming'
+2025-06-06 10:33:17,696 - INFO - Content URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:33:17,697 - INFO - ---
+2025-06-06 10:33:17,851 - INFO - Video: 'JavaScript Fundamentals - Video Lesson'
+2025-06-06 10:33:17,853 - INFO - Course: 'Web Development with JavaScript'
+2025-06-06 10:33:17,854 - INFO - Content URL: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:33:17,854 - INFO - ---
+2025-06-06 10:33:17,974 - INFO - Video: 'DOM Manipulation - Video Lesson'
+2025-06-06 10:33:17,975 - INFO - Course: 'Web Development with JavaScript'
+2025-06-06 10:33:17,975 - INFO - Content URL: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:33:17,976 - INFO - ---
+2025-06-06 10:33:17,976 - INFO - Verification complete.
+2025-06-06 10:33:17,977 - INFO - Video content update process completed.

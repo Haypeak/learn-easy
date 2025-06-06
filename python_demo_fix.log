@@ -1,0 +1,57 @@
+2025-06-06 10:42:15,179 - INFO - Starting Python Installation Demo video update...
+2025-06-06 10:42:17,567 - ERROR - Python Installation Demo video not found
+2025-06-06 10:42:17,568 - INFO - Update process completed.
+2025-06-06 10:44:06,367 - INFO - Starting Python Installation Demo video update...
+2025-06-06 10:44:08,797 - INFO - Found 2 Python-related courses
+2025-06-06 10:44:08,798 - INFO - Course 1: Introduction to Python Programming (ID: 682068875e3c7373f94ea63a)
+2025-06-06 10:44:08,798 - INFO -   Level: beginner
+2025-06-06 10:44:08,798 - INFO -   Topics: Python, Programming Basics, Control Flow, Functions
+2025-06-06 10:44:08,799 - INFO - Course 2: Introduction to Python Programming (ID: 68208ecdb1fd05d481ec951a)
+2025-06-06 10:44:08,799 - INFO -   Level: Beginner
+2025-06-06 10:44:08,799 - INFO -   Topics: Programming, Python, Computer Science
+2025-06-06 10:44:08,799 - INFO - Checking videos for course: Introduction to Python Programming
+2025-06-06 10:44:08,904 - INFO - Found 3 videos for course ID: 682068875e3c7373f94ea63a
+2025-06-06 10:44:08,904 - INFO - Video 1: Getting Started with Python - Video Lesson
+2025-06-06 10:44:08,905 - INFO -   Content: https://www.youtube.com/embed/rfscVS0vtbw
+2025-06-06 10:44:08,905 - INFO -   Order: 2
+2025-06-06 10:44:08,905 - INFO - Video 2: Variables and Data Types - Video Lesson
+2025-06-06 10:44:08,906 - INFO -   Content: https://www.youtube.com/embed/rfscVS0vtbw
+2025-06-06 10:44:08,906 - INFO -   Order: 6
+2025-06-06 10:44:08,906 - INFO - Video 3: Control Structures - Video Lesson
+2025-06-06 10:44:08,906 - INFO -   Content: https://www.youtube.com/embed/rfscVS0vtbw
+2025-06-06 10:44:08,906 - INFO -   Order: 10
+2025-06-06 10:44:08,906 - WARNING - No Python installation videos found for course: Introduction to Python Programming
+2025-06-06 10:44:08,907 - INFO - Checking videos for course: Introduction to Python Programming
+2025-06-06 10:44:09,012 - INFO - Found 1 videos for course ID: 68208ecdb1fd05d481ec951a
+2025-06-06 10:44:09,013 - INFO - Video 1: Python Installation Demo
+2025-06-06 10:44:09,013 - INFO -   Content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:44:09,013 - INFO -   Order: 3
+2025-06-06 10:44:09,013 - INFO - Found 1 Python installation videos
+2025-06-06 10:44:09,014 - INFO - Updating video: Python Installation Demo
+2025-06-06 10:44:09,248 - INFO - Successfully updated video: Python Installation Demo
+2025-06-06 10:44:09,249 - INFO - Old content: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:44:09,249 - INFO - New content: https://www.youtube.com/embed/YYXdXT2l-Gg
+2025-06-06 10:44:09,367 - INFO - Found 2 Python-related courses
+2025-06-06 10:44:09,367 - INFO - Course 1: Introduction to Python Programming (ID: 682068875e3c7373f94ea63a)
+2025-06-06 10:44:09,367 - INFO -   Level: beginner
+2025-06-06 10:44:09,367 - INFO -   Topics: Python, Programming Basics, Control Flow, Functions
+2025-06-06 10:44:09,368 - INFO - Course 2: Introduction to Python Programming (ID: 68208ecdb1fd05d481ec951a)
+2025-06-06 10:44:09,368 - INFO -   Level: Beginner
+2025-06-06 10:44:09,368 - INFO -   Topics: Programming, Python, Computer Science
+2025-06-06 10:44:09,368 - INFO - 
+VERIFICATION:
+2025-06-06 10:44:09,472 - INFO - Videos for course 'Introduction to Python Programming':
+2025-06-06 10:44:09,472 - INFO - Video: 'Getting Started with Python - Video Lesson'
+2025-06-06 10:44:09,473 - INFO - Content URL: https://www.youtube.com/embed/rfscVS0vtbw
+2025-06-06 10:44:09,473 - INFO - ---
+2025-06-06 10:44:09,473 - INFO - Video: 'Variables and Data Types - Video Lesson'
+2025-06-06 10:44:09,473 - INFO - Content URL: https://www.youtube.com/embed/rfscVS0vtbw
+2025-06-06 10:44:09,473 - INFO - ---
+2025-06-06 10:44:09,474 - INFO - Video: 'Control Structures - Video Lesson'
+2025-06-06 10:44:09,474 - INFO - Content URL: https://www.youtube.com/embed/rfscVS0vtbw
+2025-06-06 10:44:09,474 - INFO - ---
+2025-06-06 10:44:09,579 - INFO - Videos for course 'Introduction to Python Programming':
+2025-06-06 10:44:09,579 - INFO - Video: 'Python Installation Demo'
+2025-06-06 10:44:09,580 - INFO - Content URL: https://www.youtube.com/embed/YYXdXT2l-Gg
+2025-06-06 10:44:09,586 - INFO - ---
+2025-06-06 10:44:09,587 - INFO - Update process completed.

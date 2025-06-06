@@ -115,46 +115,49 @@ export default function CourseDetail() {
 
       <div className={styles.content}>
         <h2>Course Content</h2>
-      {course.contentItems.map((item, index) => (
-        <div key={index} className={styles.contentItem}>
-          {item.type === 'video' && (
-            <div className={styles.video}>
-              <h3>{item.title}</h3>
-              <video controls>
-                <source src={item.url} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          )}
-          {item.type === 'article' && (
-            <div className={styles.article}>
-              <h3>{item.title}</h3>
-              <div dangerouslySetInnerHTML={{'__html': item.content}} />
-            </div>
-          )}
-          {item.type === 'image' && (
-            <div className={styles.image}>
-              <h3>{item.title}</h3>
-              <img src={item.url} alt={item.title} />
-            </div>
-          )}
-        </div>
-      ))}
+        {course.contentItems.map((item, index) => (
+          <div key={index} className={styles.contentItem}>
+            {item.type === 'video' && (
+              <div className={styles.video}>
+                <h3>{item.title}</h3>
+                <iframe
+                  width="560"
+                  height="315"
+                  src={item.content}
+                  title={item.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            )}
+            {item.type === 'article' && (
+              <div className={styles.article}>
+                <h3>{item.title}</h3>
+                <div dangerouslySetInnerHTML={{ __html: item.content }} />
+              </div>
+            )}
+            {item.type === 'image' && (
+              <div className={styles.image}>
+                <h3>{item.title}</h3>
+                <img src={item.url} alt={item.title} />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
       <div className={styles.structure}>
         <h2>Course Structure</h2>
-        {/* {console.log(course.structure)} */}
-            
-             <div className={styles.noQuizzes}>
-                <p>No quizzes available for this section.</p>
-                <button
-                  onClick={() => generateQuiz(course.title, 20)}
-                  className={styles.generateQuizButton}
-                >
-                  Generate a Quiz
-                </button>
-              </div>
+        <div className={styles.noQuizzes}>
+          <p>No quizzes available for this section.</p>
+          <button
+            onClick={() => generateQuiz(course.title, 20)}
+            className={styles.generateQuizButton}
+          >
+            Generate a Quiz
+          </button>
+        </div>
         {course.structure.sections.map((section, index) => (
           <div key={index} className={styles.section}>
             <h3>{section.title}</h3>

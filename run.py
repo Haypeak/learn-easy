@@ -19,7 +19,7 @@ def reload_website():
 # Start the reloader in a separate thread
 reloader_thread = Thread(target=reload_website)
 reloader_thread.daemon = True 
-reloader_thread.start()
+# reloader_thread.start()
 
 if __name__ == "__main__":
     app.run(debug=True)

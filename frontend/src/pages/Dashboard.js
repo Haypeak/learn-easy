@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext'; // Import AuthContext
-import Sidebar from '../components/Sidebar';
+// import Sidebar from '../components/Sidebar';
 import { BookOpen, Target, Award } from 'lucide-react'; // For previous dashboard icons
 import styles from '../styles/Dashboard.module.css';
 import Header from '../components/Header';
 
 
-function Dashboard() {
+export default function Dashboard() {
   const navigate = useNavigate();
   const { logout } = useAuth(); // Access logout from AuthContext
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   // Retrieve profile data from localStorage (optional, if still needed)
-  const profile = JSON.parse(localStorage.getItem('profile') || '{}');
-  const userName = profile.schoolName ? profile.schoolName.split(' ')[0] : 'John Doe'; // Fallback name
+  // const profile = JSON.parse(localStorage.getItem('profile') || '{}');
+  // const userName = profile.schoolName ? profile.schoolName.split(' ')[0] : 'John Doe'; // Fallback name
 
   // Mock data for previous dashboard
   const metrics = [
@@ -48,10 +48,11 @@ function Dashboard() {
     modulesCompleted: '7 of 10 modules completed',
   };
 
-  const handleLogout = () => {
-    logout(); // Call AuthContext logout function to update state
-    navigate('/'); // Redirect to the original landing page
-  };
+  // var handleLogout = () => {
+  //   logout(); // Call AuthContext logout function to update state
+  //   navigate('/'); // Redirect to the original landing page
+  // };
+
 
   return (
     <div className={styles.dashboard}>
@@ -132,5 +133,3 @@ function Dashboard() {
     </div>
   );
 }
-
-export default Dashboard;

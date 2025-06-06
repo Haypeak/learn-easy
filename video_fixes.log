@@ -1,0 +1,53 @@
+2025-06-06 10:39:02,236 - INFO - Starting fix for mismatched videos...
+2025-06-06 10:39:02,242 - INFO - Processing course: Introduction to Python Programming
+2025-06-06 10:39:08,487 - INFO - Updated video: 'Getting Started with Python - Video Lesson'
+2025-06-06 10:39:08,489 - INFO - Old URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:39:08,490 - INFO - New URL: https://www.youtube.com/embed/rfscVS0vtbw
+2025-06-06 10:39:09,893 - INFO - Updated video: 'Variables and Data Types - Video Lesson'
+2025-06-06 10:39:09,893 - INFO - Old URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:39:09,893 - INFO - New URL: https://www.youtube.com/embed/rfscVS0vtbw
+2025-06-06 10:39:12,339 - INFO - Updated video: 'Control Structures - Video Lesson'
+2025-06-06 10:39:12,339 - INFO - Old URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:39:12,340 - INFO - New URL: https://www.youtube.com/embed/rfscVS0vtbw
+2025-06-06 10:39:13,084 - WARNING - Video not found: Python Installation Demo in course Introduction to Python Programming
+2025-06-06 10:39:13,086 - INFO - Processing course: Web Development with JavaScript
+2025-06-06 10:39:15,928 - INFO - Updated video: 'JavaScript Fundamentals - Video Lesson'
+2025-06-06 10:39:15,928 - INFO - Old URL: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:39:15,929 - INFO - New URL: https://www.youtube.com/embed/W6NZfCO5SIk
+2025-06-06 10:39:16,975 - INFO - Updated video: 'DOM Manipulation - Video Lesson'
+2025-06-06 10:39:16,980 - INFO - Old URL: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:39:16,982 - INFO - New URL: https://www.youtube.com/embed/5fb2aPlgoys
+2025-06-06 10:39:17,348 - INFO - Updated video: 'Modern JavaScript (ES6+) - Video Lesson'
+2025-06-06 10:39:17,349 - INFO - Old URL: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:39:17,349 - INFO - New URL: https://www.youtube.com/embed/NCwa_xi0Uuc
+2025-06-06 10:39:18,431 - INFO - Updated video: 'Asynchronous JavaScript - Video Lesson'
+2025-06-06 10:39:18,433 - INFO - Old URL: https://www.youtube.com/embed/hdI2bqOjy3c
+2025-06-06 10:39:18,434 - INFO - New URL: https://www.youtube.com/embed/ZYb_ZU8LNxs
+2025-06-06 10:39:18,436 - INFO - Processing course: Public Speaking
+2025-06-06 10:39:19,299 - INFO - Updated video: 'Speech Structure and Organization - Video Lesson'
+2025-06-06 10:39:19,300 - INFO - Old URL: https://www.youtube.com/embed/Unzc731iCUY
+2025-06-06 10:39:19,301 - INFO - New URL: https://www.youtube.com/embed/8S0FDjFBj8o
+2025-06-06 10:39:19,637 - INFO - Updated video: 'Delivery and Body Language - Video Lesson'
+2025-06-06 10:39:19,637 - INFO - Old URL: https://www.youtube.com/embed/Unzc731iCUY
+2025-06-06 10:39:19,638 - INFO - New URL: https://www.youtube.com/embed/ZK3jSXYBNak
+2025-06-06 10:39:20,108 - INFO - Updated video: 'Persuasive Speaking - Video Lesson'
+2025-06-06 10:39:20,109 - INFO - Old URL: https://www.youtube.com/embed/Unzc731iCUY
+2025-06-06 10:39:20,109 - INFO - New URL: https://www.youtube.com/embed/eIho2S0ZahI
+2025-06-06 10:39:20,528 - INFO - Updated video: 'Speaking in Different Contexts - Video Lesson'
+2025-06-06 10:39:20,528 - INFO - Old URL: https://www.youtube.com/embed/Unzc731iCUY
+2025-06-06 10:39:20,529 - INFO - New URL: https://www.youtube.com/embed/LpX2fCy2dqo
+2025-06-06 10:39:20,529 - INFO - Processing course: Advanced Data Structures and Algorithms
+2025-06-06 10:39:21,330 - INFO - Updated video: 'Advanced Tree Structures - Video Lesson'
+2025-06-06 10:39:21,330 - INFO - Old URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:39:21,330 - INFO - New URL: https://www.youtube.com/embed/1-l_UOFi1Xw
+2025-06-06 10:39:21,711 - INFO - Updated video: 'Graph Algorithms - Video Lesson'
+2025-06-06 10:39:21,711 - INFO - Old URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:39:21,711 - INFO - New URL: https://www.youtube.com/embed/tWVWeAqZ0WU
+2025-06-06 10:39:21,996 - INFO - Updated video: 'Dynamic Programming - Video Lesson'
+2025-06-06 10:39:21,996 - INFO - Old URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:39:21,997 - INFO - New URL: https://www.youtube.com/embed/oBt53YbR9Kk
+2025-06-06 10:39:22,308 - INFO - Updated video: 'Advanced Algorithm Analysis - Video Lesson'
+2025-06-06 10:39:22,308 - INFO - Old URL: https://www.youtube.com/embed/yfoY53QXEnI
+2025-06-06 10:39:22,308 - INFO - New URL: https://www.youtube.com/embed/0JUN9aDxVmI
+2025-06-06 10:39:22,309 - INFO - Successfully updated 15 videos with more relevant content
+2025-06-06 10:39:22,309 - INFO - Fix completed.
