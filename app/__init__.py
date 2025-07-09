@@ -40,17 +40,17 @@ def create_app():
     app.register_blueprint(learning_bp, url_prefix='/learning')
     app.register_blueprint(quiz_bp, url_prefix='/quiz')
   
-    @app.after_request
-    def after_request(response):
-        # Set CORS headers if not already set by Flask-CORS
-        if 'Access-Control-Allow-Origin' not in response.headers:
-            response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
-            # response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
-        if 'Access-Control-Allow-Headers' not in response.headers:
-            response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-        if 'Access-Control-Allow-Methods' not in response.headers:
-            response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
-        return response
+    # @app.after_request
+    # def after_request(response):
+    #     # Set CORS headers if not already set by Flask-CORS
+    #     if 'Access-Control-Allow-Origin' not in response.headers:
+    #         response.headers.add('Access-Control-Allow-Origin', 'https://learneasyapp.netlify.app')
+    #         # response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
+    #     if 'Access-Control-Allow-Headers' not in response.headers:
+    #         response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    #     if 'Access-Control-Allow-Methods' not in response.headers:
+    #         response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+    #     return response
     @app.route('/')
     @app.route('/health')
     def index():

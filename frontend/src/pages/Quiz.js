@@ -1,271 +1,179 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import api from '../utils/api';
-import styles from '../styles/Quiz.module.css';
+import { useAuth } from '../context/AuthContext'; // Import AuthContext
+import '../styles/Quiz.module.css';
 
-export default function Quiz() {
-  const { quizId } = useParams();
-  const navigate = useNavigate();
-  // const { user } = useAuth();
+const Quiz = () => {
+  // Preset quiz data
+  const presetQuiz = {
+    title: 'Technology Quiz',
+    timeLimit: 5, // Time limit in minutes
+    questions: [
+      {
+        id: 1,
+        question: 'What does HTML stand for?',
+        options: [
+          'HyperText Markup Language',
+          'HighText Machine Language',
+          'Hyperlink and Text Markup Language',
+        ],
+        correctAnswer: 'HyperText Markup Language',
+      },
+      {
+        id: 2,
+        question: 'Which programming language is primarily used for web development?',
+        options: ['Python', 'JavaScript', 'C++'],
+        correctAnswer: 'JavaScript',
+      },
+      {
+        id: 3,
+        question: 'What is the name of the version control system created by Linus Torvalds?',
+        options: ['Git', 'SVN', 'Mercurial'],
+        correctAnswer: 'Git',
+      },
+      {
+        id: 4,
+        question: 'Which company developed the React library?',
+        options: ['Google', 'Facebook', 'Microsoft'],
+        correctAnswer: 'Facebook',
+      },
+      {
+        id: 5,
+        question: 'What does CSS stand for?',
+        options: [
+          'Cascading Style Sheets',
+          'Computer Style Sheets',
+          'Creative Style Sheets',
+        ],
+        correctAnswer: 'Cascading Style Sheets',
+      },
+    ],
+  };
 
-  const [quiz, setQuiz] = useState(null);
+  // State variables
+  const [quiz, setQuiz] = useState(presetQuiz); // Use preset quiz data
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
   const [quizResult, setQuizResult] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState(null);
 
-  useEffect(() => {
-    fetchQuiz();
-  }, [quizId]);
-
+  // Timer logic
   useEffect(() => {
     if (quiz?.timeLimit && !quizResult) {
       setTimeRemaining(quiz.timeLimit * 60); // Convert minutes to seconds
       const timer = setInterval(() => {
-        setTimeRemaining((prev) => {
-          if (prev === null || prev <= 1) {
-            clearInterval(timer);
-            handleSubmitQuiz();
-            return 0;
-          }
-          return prev - 1;
-        });
+        setTimeRemaining((prev) => (prev > 0 ? prev - 1 : 0));
       }, 1000);
 
-      return () => clearInterval(timer);
+      return () => clearInterval(timer); // Cleanup timer on unmount
     }
-  }, [quiz]);
+  }, [quiz?.timeLimit, quizResult]);
 
-  const fetchQuiz = async () => {
-    try {
-      setLoading(true);
-      const response = await api.get(`/quiz/quizzes/${quizId}`);
-      setQuiz(response.data);
-    } catch (err) {
-      setError('Failed to fetch quiz. Please try again later.');
-      console.error('Error fetching quiz:', err);
-    } finally {
-      setLoading(false);
-    }
+  // Handle answer selection
+  const handleAnswer = (questionId, answer) => {
+    setUserAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [questionId]: answer,
+    }));
   };
 
-  const handleOptionSelect = (questionId, option) => {
-    const question = quiz?.questions[currentQuestionIndex];
-    if (!question) return;
-
-    setUserAnswers((prev) => {
-      if (question.type === 'single') {
-        return { ...prev, [questionId]: [option] };
-      }
-
-      const currentAnswers = prev[questionId] || [];
-      const updatedAnswers = currentAnswers.includes(option)
-        ? currentAnswers.filter((a) => a !== option)
-        : [...currentAnswers, option];
-
-      return { ...prev, [questionId]: updatedAnswers };
-    });
+  // Submit quiz
+  const submitQuiz = () => {
+    const results = quiz.questions.map((q) => ({
+      question: q.question,
+      correct: userAnswers[q.id] === q.correctAnswer,
+      userAnswer: userAnswers[q.id],
+      correctAnswer: q.correctAnswer,
+    }));
+    setQuizResult(results);
   };
 
-  const handleSubmitQuiz = async () => {
-    try {
-      const submissions = Object.entries(userAnswers).map(
-        ([questionId, selectedOptions]) => ({
-          questionId,
-          selectedOptions,
-        })
-      );
-
-      const response = await api.post(`/quizzes/${quizId}/submit`, {
-        submissions,
-      });
-
-      setQuizResult(response.data);
-    } catch (err) {
-      setError('Failed to submit quiz. Please try again.');
-      console.error('Error submitting quiz:', err);
-    }
+  const resetSelection = (questionId) => {
+    setUserAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [questionId]: null,
+    }));
   };
 
-  const navigateToNextQuestion = () => {
-    if (!quiz) return;
-    if (currentQuestionIndex < quiz.questions.length - 1) {
-      setCurrentQuestionIndex((prev) => prev + 1);
-    }
-  };
-
-  const navigateToPreviousQuestion = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex((prev) => prev - 1);
-    }
-  };
-
-  const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-  };
-
-  if (loading) {
-    return <div className={styles.loading}>Loading quiz...</div>;
-  }
-
-  if (error) {
-    return <div className={styles.error}>{error}</div>;
-  }
-
-  if (!quiz) {
-    return <div className={styles.error}>Quiz not found</div>;
-  }
-
-  if (quizResult) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.result}>
-          <h2>Quiz Results</h2>
-          <div className={styles.score}>
-            <p>
-              Score: {quizResult.score}% ({quizResult.correctAnswers} out of{' '}
-              {quizResult.totalQuestions} correct)
-            </p>
-          </div>
-
-          <div className={styles.feedback}>
-            {quizResult.feedback.map((feedback, index) => {
-              const question = quiz.questions.find((q) => q.id === feedback.questionId);
-              return (
-                <div
-                  key={feedback.questionId}
-                  className={`${styles.feedbackItem} ${
-                    feedback.isCorrect ? styles.correct : styles.incorrect
-                  }`}
-                >
-                  <p>
-                    <strong>Question {index + 1}:</strong> {question?.question}
-                  </p>
-                  <p>
-                    <strong>{feedback.isCorrect ? 'Correct!' : 'Incorrect'}</strong>
-                  </p>
-                  {feedback.explanation && (
-                    <p className={styles.explanation}>{feedback.explanation}</p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          <button
-            onClick={() => navigate(-1)}
-            className={styles.returnButton}
-          >
-            Return to Course
-          </button>
+  // Render quiz result
+  const renderResult = () => (
+    <div className="quiz-results">
+      <h2>Quiz Results</h2>
+      {quizResult.map((result, index) => (
+        <div key={index} className="result-item">
+          <p>Question: {result.question}</p>
+          <p>Your Answer: {result.userAnswer || 'No Answer'}</p>
+          <p>
+            {result.correct
+              ? 'Correct!'
+              : `Incorrect. Correct Answer: ${result.correctAnswer}`}
+          </p>
         </div>
-      </div>
-    );
-  }
-
-  const currentQuestion = quiz.questions[currentQuestionIndex];
-
-  return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <h1>{quiz.title}</h1>
-        {timeRemaining !== null && (
-          <div className={styles.timer}>
-            Time Remaining: {formatTime(timeRemaining)}
-          </div>
-        )}
-      </div>
-
-      <div className={styles.progress}>
-        Question {currentQuestionIndex + 1} of {quiz.questions.length}
-      </div>
-
-      <div className={styles.question}>
-        <h2>{currentQuestion.question}</h2>
-        <div className={styles.options}>
-          {currentQuestion.options.map((option, index) => (
-            <label
-              key={index}
-              className={`${styles.option} ${
-                userAnswers[currentQuestion.id]?.includes(option)
-                  ? styles.selected
-                  : ''
-              }`}
-            >
-              <input
-                type={currentQuestion.type === 'single' ? 'radio' : 'checkbox'}
-                name={`question-${currentQuestion.id}`}
-                value={option}
-                checked={userAnswers[currentQuestion.id]?.includes(option)}
-                onChange={() => handleOptionSelect(currentQuestion.id, option)}
-              />
-              <span className={styles.optionText}>{option}</span>
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <div className={styles.navigation}>
-        <button
-          onClick={navigateToPreviousQuestion}
-          disabled={currentQuestionIndex === 0}
-          className={styles.navButton}
-        >
-          Previous
-        </button>
-
-        {currentQuestionIndex === quiz.questions.length - 1 ? (
-          <button
-            onClick={handleSubmitQuiz}
-            className={`${styles.navButton} ${styles.submit}`}
-          >
-            Submit Quiz
-          </button>
-        ) : (
-          <button
-            onClick={navigateToNextQuestion}
-            className={styles.navButton}
-          >
-            Next
-          </button>
-        )}
-      </div>
+      ))}
     </div>
   );
-}
 
-Quiz.propTypes = {
-  quiz: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
-    timeLimit: PropTypes.number,
-    questions: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        question: PropTypes.string.isRequired,
-        options: PropTypes.arrayOf(PropTypes.string).isRequired,
-        type: PropTypes.oneOf(['single', 'multiple']).isRequired
-      })
-    )
-  }),
-  quizResult: PropTypes.shape({
-    score: PropTypes.number.isRequired,
-    totalQuestions: PropTypes.number.isRequired,
-    correctAnswers: PropTypes.number.isRequired,
-    feedback: PropTypes.arrayOf(
-      PropTypes.shape({
-        questionId: PropTypes.string.isRequired,
-        isCorrect: PropTypes.bool.isRequired,
-        explanation: PropTypes.string
-      })
-    ).isRequired
-  })
+  return (
+    <div className="quiz-container">
+      <h1 className="quiz-title">{quiz.title}</h1>
+      {timeRemaining !== null && (
+        <p className="quiz-timer">
+          Time Remaining: {Math.floor(timeRemaining / 60)}:{timeRemaining % 60}
+        </p>
+      )}
+      {quizResult ? (
+        renderResult()
+      ) : (
+        <div className="quiz-question-container">
+          <p className="quiz-question">
+            {quiz.questions[currentQuestionIndex].question}
+          </p>
+          <div className="quiz-options">
+            {quiz.questions[currentQuestionIndex].options.map((option) => (
+              <label key={option} className="quiz-option">
+                <input
+                  type="checkbox"
+                  checked={userAnswers[quiz.questions[currentQuestionIndex].id] === option}
+                  onChange={() =>
+                    handleAnswer(quiz.questions[currentQuestionIndex].id, option)
+                  }
+                />
+                <span className="circle"></span>
+                {option}
+              </label>
+            ))}
+          </div>
+          <button
+            onClick={() => resetSelection(quiz.questions[currentQuestionIndex].id)}
+            className="quiz-reset-button"
+          >
+            Reset Selection
+          </button>
+          <div className="quiz-navigation">
+            {currentQuestionIndex > 0 && (
+              <button
+                onClick={() => setCurrentQuestionIndex((prev) => prev - 1)}
+                className="quiz-nav-button"
+              >
+                Previous
+              </button>
+            )}
+            {currentQuestionIndex < quiz.questions.length - 1 ? (
+              <button
+                onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
+                className="quiz-nav-button"
+              >
+                Next
+              </button>
+            ) : (
+              <button onClick={submitQuiz} className="quiz-submit-button">
+                Submit Quiz
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
+export default Quiz;
